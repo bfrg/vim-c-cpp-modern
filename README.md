@@ -1,4 +1,4 @@
-# vim-cpp-modern: Enhanced C++ syntax highlighting for Vim
+# vim-cpp-modern: Enhanced C++ syntax highlighting
 
 This plugin provides improved syntax highlighting for C++11/14/17 development in
 Vim. It adds additional highlighting of functions, template functions as well as
@@ -9,23 +9,22 @@ It further provides highlighting of C++ library concepts.
 [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight).
 If you want the original, follow the link.
 
-What is different from the original vim-cpp-enhanced-highlight version?
+**What is different from the original vim-cpp-enhanced-highlight version?**
 - Added more C++14 support (should be complete now)
-- Added everything from C++17 and concepts (based on cppreference.com)
+- Added everything from C++17 including concepts (based on cppreference.com)
 - C++11/14/17 definitions are sorted alphabetically by the headers they're
   defined in
 - Almost all standard library functions have been commented out because
   everything that ends with parentheses is highlighted as a function anyway,
-  so we don't have to explicitly list each library function in here. The only
-  exceptions are function templates, which sometimes must be called with
-  template parameters, like `std::make_unique<Foo>(blah)`.
-  Another reason why almost all functions have been commented out is because
-  if a user defines his/her own type (or something else) and the name collides
-  with a library function name, the type will be highlighted as a function. If
-  this happens too often throughout the code, the highlighting will be
-  "too colorful" and thus more distracting than useful (IMO). I have noticed
-  this quite often when I implemented metafunctions like `apply`, `find_if`,
-  etc.
+  so we don't have to explicitly list each library function. The only exceptions
+  are function templates, which sometimes must be called with template
+  parameters, like `std::make_unique<Foo>(blah)`. Another reason why almost all
+  functions have been commented out is because if a user defines his/her own
+  type (or something else) and the name collides with a library function name,
+  the type will be highlighted as a function. If this happens too often
+  throughout the code, the highlighting will be "too colorful" and thus more
+  distracting than useful (IMO). I have noticed this quite often when I
+  implemented metafunctions like `apply`, `find_if`, etc.
 
 
 ## Optional features
