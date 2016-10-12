@@ -274,6 +274,7 @@ syntax keyword cppSTLiterator_tag random_access_iterator_tag
 
 syntax keyword cppSTLnamespace rel_ops
 syntax keyword cppSTLnamespace std
+syntax keyword cppSTLnamespace experimental
 
 syntax keyword cppSTLtype allocator
 syntax keyword cppSTLtype auto_ptr
