@@ -1609,6 +1609,7 @@ if !exists("cpp_no_cpp17")
     syntax keyword cppSTLenum copy_options
     syntax keyword cppSTLenum directory_options
     syntax keyword cppSTLConstant preferred_separator
+    " Note: 'capacity' and 'free' are already set as cppSTLfunction
     " syntax keyword cppSTLconstant capacity
     " syntax keyword cppSTLconstant free
     " syntax keyword cppSTLconstant available
@@ -1619,6 +1620,7 @@ if !exists("cpp_no_cpp17")
     " syntax keyword cppSTLfunction replace_extension
     " syntax keyword cppSTLfunction native
     " syntax keyword cppSTLfunction string_type
+    " Note: wstring, u8string, u16string, u32string already set as cppSTLtype
     " syntax keyword cppSTLfunction wstring
     " syntax keyword cppSTLfunction u8string
     " syntax keyword cppSTLfunction u16string
@@ -1873,7 +1875,6 @@ if !exists("cpp_no_cpp17")
     " syntax keyword cppSTLfunction try_emplace
     " syntax keyword cppSTLfunction insert_or_assign
     " syntax keyword cppSTLfunction extract
-    " syntax keyword cppSTLfunction merge
 
     " utility
     syntax keyword cppSTLtype in_place_tag

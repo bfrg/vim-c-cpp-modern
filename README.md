@@ -40,7 +40,9 @@ let g:cpp_experimental_template_highlight = 1
 ```
 
 _Note: C++ template syntax is notoriously difficult to parse, so don't expect
-this feature to be perfect._
+this feature to be perfect._ See for instance
+[issue #6](https://github.com/octol/vim-cpp-enhanced-highlight/issues/6) in the
+original repository.
 
 Highlighting of member variable names is enabled by setting
 ```vim
