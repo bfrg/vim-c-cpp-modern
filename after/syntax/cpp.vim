@@ -47,6 +47,14 @@
 
 
 " ┌───────────────────────────────────────────────────────────────────────────┐
+" │ Custom highlighting                                                       │
+" └───────────────────────────────────────────────────────────────────────────┘
+
+syn keyword cppStorageClass inline virtual explicit export override final
+" syn keyword cppStatement    class typename template namespace
+
+
+" ┌───────────────────────────────────────────────────────────────────────────┐
 " │ Highlight class and function names                                        │
 " │                                                                           │
 " │ Based on discussion http://stackoverflow.com/q/736701                     │

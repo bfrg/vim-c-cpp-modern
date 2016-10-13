@@ -1,19 +1,39 @@
 " Vim syntax file
 "
-" Language:    C Additions
-" Maintainer:  Jon Haggblad <jon@haeggblad.com>
-" Contributor: Mikhail Wolfson <mywolfson@gmail.com>
-" Last Change: 11 Oct 2016
-" Version:     0.4
+" Language:              C Additions
+" Current Maintainer:    Benjamin (bfrg)
+" Previous Maintainers:  Jon Haggblad <jon@haeggblad.com>
+"                        Mikhail Wolfson <mywolfson@gmail.com>
+" Last Change:           13 Oct 2016
+" Version:               0.5
+"
 " Changelog:
+"   0.5 - added custom C syntax highlighting
 "   0.4 - added member variable highlighting
 "   0.3 - integration of aftersyntaxc.vim
 "   0.2 - Cleanup
 "   0.1 - initial version.
 "
-" Syntax highlighting for functions in C.
+" Custom C syntax highlighting and highlighting for functions.
 "
-" Based on: http://stackoverflow.com/q/736701
+" Based on:
+" - https://github.com/octol/vim-cpp-enhanced-highlight
+" - http://stackoverflow.com/q/736701
+
+
+" ┌───────────────────────────────────────────────────────────────────────────┐
+" │ Custom highlighting                                                       │
+" └───────────────────────────────────────────────────────────────────────────┘
+
+" Highlight struct, union, enum and typedef as statements (like 'return')
+" syn clear cStructure
+" syn keyword cStatement struct union enum typedef
+
+" The default c.vim in /usr/share/vim/vim80/syntax somehow doesn't highlight
+" inline properly, so we add it here explicitly
+syn keyword cStorageClass inline
+
+syn keyword cTodo contained BUG NOTE
 
 
 " ┌───────────────────────────────────────────────────────────────────────────┐

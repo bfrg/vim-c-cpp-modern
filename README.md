@@ -11,7 +11,8 @@ If you want the original, follow the link.
 
 **What is different from the original vim-cpp-enhanced-highlight version?**
 - Added more C++14 support (should be complete now)
-- Added everything from C++17 including concepts (based on cppreference.com)
+- Added everything from C++17 including concepts (based on
+  [cppreference.com](http://en.cppreference.com))
 - C++11/14/17 definitions are sorted alphabetically by the headers they're
   defined in
 - Almost all standard library functions have been commented out because
@@ -20,7 +21,7 @@ If you want the original, follow the link.
   are function templates, which sometimes must be called with template
   parameters, like `std::make_unique<Foo>(blah)`. Another reason why almost all
   functions have been commented out is because if a user defines his/her own
-  type (or something else) and the name collides with a library function name,
+  type (or something else) and the name collides with a library's function name,
   the type will be highlighted as a function. If this happens too often
   throughout the code, the highlighting will be "too colorful" and thus more
   distracting than useful (IMO). I have noticed this quite often when I
