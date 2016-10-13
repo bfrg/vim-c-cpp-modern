@@ -1868,6 +1868,11 @@ if !exists("cpp_no_cpp17")
     syntax keyword cppSTLbool conjunction_v
     syntax keyword cppSTLbool disjunction_v
     syntax keyword cppSTLbool negation_v
+    syntax keyword cppSTLbool has_unique_object_representations_v
+    syntax keyword cppSTLbool is_swappable_v
+    syntax keyword cppSTLbool is_swappable_with_v
+    syntax keyword cppSTLbool is_nothrow_swappable_v
+    syntax keyword cppSTLbool is_nothrow_swappable_with_v
     syntax keyword cppSTLconstant alignment_of_v
     syntax keyword cppSTLconstant rank_v
     syntax keyword cppSTLconstant extent_v
@@ -1877,6 +1882,12 @@ if !exists("cpp_no_cpp17")
     syntax keyword cppSTLtype conjunction
     syntax keyword cppSTLtype disjunction
     syntax keyword cppSTLtype negation
+    syntax keyword cppSTLtype void_t
+    syntax keyword cppSTLtype has_unique_object_representations
+    syntax keyword cppSTLtype is_swappable
+    syntax keyword cppSTLtype is_swappable_with
+    syntax keyword cppSTLtype is_nothrow_swappable
+    syntax keyword cppSTLtype is_nothrow_swappable_with
 
     " unordered_map, unordered_set, unordered_multimap, unordered_multiset
     syntax keyword cppSTLtype node_type
