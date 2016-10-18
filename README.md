@@ -9,12 +9,11 @@ It further provides highlighting of C++ library concepts.
 [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight).
 If you want the original, follow the link.
 
-**What is different from the original vim-cpp-enhanced-highlight version?**
-- Added more C++14 support (should be complete now)
-- Added everything from C++17 including concepts (based on
-  [cppreference.com](http://en.cppreference.com))
-- C++11/14/17 definitions are sorted alphabetically by the headers they're
-  defined in
+#### What is different from the original vim-cpp-enhanced-highlight version?
+
+- Added own C/C++ highlighting for the keywords `virtual`, `override`, `final`,
+  `inline`, `explicit` and `export`. These are now under the highlight group
+  `StorageClass`.
 - Almost all standard library functions have been commented out because
   everything that ends with parentheses is highlighted as a function anyway,
   so we don't have to explicitly list each library function. The only exceptions
