@@ -519,7 +519,7 @@ syntax keyword cppSTLtype wstringstream
 " syntax keyword cppSTLfunction gcount
 " syntax keyword cppSTLfunction generate
 " syntax keyword cppSTLfunction generate_n
-" syntax keyword cppSTLfunction get
+syntax keyword cppSTLfunction get
 " syntax keyword cppSTLfunction get_allocator
 " syntax keyword cppSTLfunction getc
 " syntax keyword cppSTLfunction getchar
