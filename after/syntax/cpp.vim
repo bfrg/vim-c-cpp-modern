@@ -314,6 +314,7 @@ syntax keyword cppSTLtype const_reference
 syntax keyword cppSTLtype container_type
 syntax keyword cppSTLtype deque
 syntax keyword cppSTLtype difference_type
+syntax keyword cppSTLtype iterator_category
 syntax keyword cppSTLtype div_t
 syntax keyword cppSTLtype double_t
 syntax keyword cppSTLtype filebuf
