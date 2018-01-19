@@ -1,31 +1,32 @@
-# vim-cpp-modern: Enhanced C++ syntax highlighting
+# vim-cpp-modern: Enhanced C and C++ syntax highlighting
 
-This plugin provides additional syntax highlighting for C++11/14/17 development
-in Vim. It provides highlighting of functions, as well as all types,
-helper types and helper template variables in the standard library.  It further
-provides syntax highlighting of C++ library concepts.
+This plugin provides additional syntax highlighting for C and C++11/14/17
+development in Vim. It provides highlighting of user-defined functions, as well
+as all types, helper types and helper template variables in the C++ standard
+library. It further provides syntax highlighting of C++ library concepts.
 
-**Note:** This syntax file is based on:
+**Note:** This syntax file is derived from:
 [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight).
 
 
 ## Difference to vim-cpp-enhanced-highlight
 
-- Added own C/C++ highlighting for the keywords `virtual`, `override`, `final`,
-  `inline`, `explicit` and `export`. These are now under the highlight group
-  `StorageClass`. The default syntax file highlights them as `Type`.
-- Standard library functions have been commented out because words that end with
-  parentheses are highlighted as functions anyway, so we don't have to
-  explicitly list each library function in here. The only exceptions are
-  standard library function templates, which sometimes must be called with
-  template parameters, like `std::make_unique<Foo>(bar)`.
+- I added my own C/C++ highlighting for the keywords `virtual`, `override`,
+  `final`, `inline`, `explicit` and `export`. These are now under the
+  highlighting group `StorageClass` (Vim's default syntax file puts them under
+  `Type`).
+- Amost all C++ standard library functions have been commented out because words
+  that end with parentheses are highlighted as functions anyway. So we don't
+  have to explicitly list each library function in here. The only exceptions are
+  function templates, which sometimes must be called with template parameters.
+  Example: `std::make_unique<Foo>(bar)`.
 - Another reason why almost all functions have been commented out is because if
   someone defines his/her own type and the name collides with a library's
   function name, the type will be highlighted as a function. This can happen
   quite often when so many keywords are added to the syntax file. I have noticed
-  that when implementing some metafunctions like `apply` or `find_if`.
+  this when implementing some metafunctions like `apply` or `find_if`.
 - User-defined function templates or class members won't be highlighted. These
-  features were removed because it was too slow and buggy.
+  features were removed because they were too slow and never worked 100%.
 
 
 ## Optional features
@@ -50,7 +51,7 @@ Plug 'bfrg/vim-cpp-modern'
 
 #### Manual installation
 
-Copy `cpp.vim` (and optionally `c.vim`) to `~/.vim/after/syntax`:
+Copy `cpp.vim` (and optionally `c.vim`) to `~/.vim/after/syntax`.
 
 
 ## Issues
