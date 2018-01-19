@@ -5,7 +5,7 @@ development in Vim. It provides highlighting of user-defined functions, as well
 as all types, helper types and helper template variables in the C++ standard
 library. It further provides syntax highlighting of C++ library concepts.
 
-**Note:** This syntax file is derived from:
+**Note:** This syntax file is based on:
 [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight).
 
 
