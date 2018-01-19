@@ -1,142 +1,61 @@
+" ==============================================================================
 " Vim syntax file
+" Language:    C++ (extended for C++11/14/17/concepts)
+" Maintainer:  bfrg <bfrg@users.noreply.github.com>
+" Last Change: 19 Jan 2018
 "
-" Language:            C++ (extended for C++11/14/17)
-" Current Maintainer:  Benjamin (bfrg)
-" Previous Maintainer: Jon Haggblad <jon@haeggblad.com>
-" Last Change:         12 Oct 2016
+" Extended syntax highlighting for C++ (including C++11/14/17/concepts)
 "
-" Extended syntax highlighting for C++ (including C++11/14/17)
+" Compared to Vim's default C++ syntax highlighting, this syntax file adds
+" highlighting of (user defined) functions, containers and types in the standard
+" library. Optionally, library concepts (like CopyConstructible) can be
+" highlighted as standard library types.
 "
-" Compared to Vim's default C++ syntax highlighting, it adds highlighting
-" of (user defined) functions, template functions, containers and types
-" in the standard library. Optionally, library concepts (like CopyConstructible)
-" can be highlighted as standard library types.
-"
-"
-" What is different from the original vim-cpp-enhanced-highlight version?
-"
-" - Added more C++14 support (should be complete now)
-"
-" - Added everything from C++17 and concepts (based on cppreference.com)
-"
-" - C++11/14/17 definitions are sorted alphabetically by the headers they're
-"   defined in
-"
-" - Almost all standard library functions have been commented out because
-"   everything that ends with parentheses is highlighted as a function anyway,
-"   so we don't have to explicitly list each library function in here. The only
-"   exceptions are function templates, which sometimes must be called with
-"   template parameters, like std::make_unique<Foo>(blah).
-"   Another reason why almost all functions have been commented out is because
-"   if a user defines his/her own type (or something else) and the name collides
-"   with a library function name, the type will be highlighted as a function. If
-"   this happens too often throughout the code, the highlighting will be
-"   'too colorful' and thus more distracting than useful (IMO). I have noticed
-"   this quite often when I implemented metafunctions like apply, find_if, etc.
-"
-"
-" The syntax file is based on a previous work:
+" This syntax file is based on the previous work by Jon Haggblad:
 "   https://github.com/octol/vim-cpp-enhanced-highlight
 "
-" See also:
-"   http://stackoverflow.com/q/736701
-"   http://www.vim.org/scripts/script.php?script_id=4293
-"   http://www.vim.org/scripts/script.php?script_id=2224
-"   http://www.vim.org/scripts/script.php?script_id=1640
-"   http://www.vim.org/scripts/script.php?script_id=3064
+" Difference to vim-cpp-enhanced-highlight:
+"
+" - Standard library functions have been commented out because words ending with
+"   parentheses are highlighted as functions anyway, so we don't have to
+"   explicitly list each library function in here. The only exceptions are
+"   standard library function templates, which sometimes must be called with
+"   template parameters, like std::make_unique<Foo>(bar).
+"
+" - Another reason why almost all functions have been commented out is because
+"   if someone defines his/her own type and the name collides with a library
+"   function name, this user-defined type will be highlighted as a function.
+"
+" - User-defined function templates or class members won't be highlighted.
+"   This feature was removed because it's too slow and buggy.
+"
+" - C++ keywords inline, virtual, explicit, export, override and final are moved
+"   to the syntax group StorageClass.
+" ==============================================================================
 
 
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ Custom highlighting                                                       │
-" └───────────────────────────────────────────────────────────────────────────┘
+" Custom highlighting
+" I don't like the way the keywords {inline, virtual, explicit, export,
+" override, final} are highlighted with the default syntax file (by default they
+" are highlighted as Type). So relink it to a different highlighting group:
+hi! def link cppModifier StorageClass
 
-syn keyword cppStorageClass inline virtual explicit export override final
-" syn keyword cppStatement    class typename template namespace
+" Alternatively, we could append them to cppStorageClass
+" syn keyword cppStorageClass inline virtual explicit export override final
 
 
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ Highlight class and function names                                        │
-" │                                                                           │
-" │ Based on discussion http://stackoverflow.com/q/736701                     │
-" └───────────────────────────────────────────────────────────────────────────┘
-
-" Functions
-syn match cCustomParen "(" contains=cParen contains=cCppParen
+" Highlight function names
+" Based on discussion http://stackoverflow.com/q/736701
+syn match cCustomParen transparent "(" contains=cParen contains=cCppParen
 syn match cCustomFunc  "\w\+\s*(\@="
-hi def link cCustomFunc Function
 
 
-" Class and namespace scope
-if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
-    syn match cCustomScope "::"
-    syn match cCustomClass "\w\+\s*::" contains=cCustomScope
-    " hi def link cCustomClass Function  " disabled for now
-    syn match cCustomClass "\<\u\w*\s*\>"
-endif
-
-
-" Bug: template functions are highlighted properly, but everything inside the
-" arrow brackes (like double,int in my_func<double,int>()) won't be highlighted
-
-" Template functions
-if exists('g:cpp_experimental_template_highlight') && g:cpp_experimental_template_highlight
-    syn match cCustomAngleBracketStart "<\_[^;()]\{-}>" contained
-                \ contains=cCustomAngleBracketStart,cCustomAngleBracketEnd
-    hi def link cCustomAngleBracketStart cCustomAngleBracketContent
-
-    syn match cCustomAngleBracketEnd ">\_[^<>;()]\{-}>" contained
-                \ contains=cCustomAngleBracketEnd
-    hi def link cCustomAngleBracketEnd cCustomAngleBracketContent
-
-    syn match cCustomTemplateFunc "\<\l\w*\s*<\_[^;()]\{-}>(\@="hs=s,he=e-1
-                \ contains=cCustomAngleBracketStart
-    hi def link cCustomTemplateFunc cCustomFunc
-
-    syn match cCustomTemplateClass "\<\w\+\s*<\_[^;()]\{-}>"
-                \ contains=cCustomAngleBracketStart,cCustomTemplateFunc
-    hi def link cCustomTemplateClass cCustomClass
-
-    " Remove 'template' from cppStructure and use a custom match
-    " Note: This doesn't seem to work properly, so disabled for now
-    " syn clear cppStructure
-    " syn keyword cppStructure class typename namespace
-
-    syn match cCustomTemplate "\<template\>"
-    hi def link cCustomTemplate cppStructure
-    syn match cTemplateDeclare "\<template\_s*<\_[^;()]\{-}>"
-                \ contains=cppStructure,cCustomTemplate,cCustomAngleBracketStart
-
-    " Remove 'operator' from cppStructure and use a custom match
-    " Note: This also doesn't seem to work properly, so disabled for now
-    " syn clear cppOperator
-    syn keyword cppOperator typeid
-    syn keyword cppOperator and bitor or xor compl bitand and_eq or_eq xor_eq not not_eq
-
-    syn match cCustomOperator "\<operator\>"
-    hi def link cCustomOperator cppStructure
-    syn match cTemplateOperatorDeclare "\<operator\_s*<\_[^;()]\{-}>[<>]=\?"
-                \ contains=cppOperator,cCustomOperator,cCustomAngleBracketStart
-endif
-
-" Alternative syntax that is used in:
-"  http://www.vim.org/scripts/script.php?script_id=3064
-"syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine
-"hi def link cCustomFunc Function
-
-" Cluster for all the stdlib functions defined below
-syn cluster cppSTLgroup contains=cppSTLbool,cppSTLfunction,cppSTLfunctional,cppSTLconstant,cppSTLnamespace,cppSTLtype,cppSTLexception,cppSTLiterator,cppSTLiterator_tagcppSTLenumcppSTLioscppSTLcast
-
-
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ Standard library types and functions                                      │
-" │                                                                           │
-" │ Mainly based on the excellent STL Syntax vim script by                    │
-" │ Mizuchi <ytj000@gmail.com>                                                │
-" │   http://www.vim.org/scripts/script.php?script_id=4293                    │
-" │   which in turn is based on the scripts                                   │
-" │   http://www.vim.org/scripts/script.php?script_id=2224                    │
-" │   http://www.vim.org/scripts/script.php?script_id=1640                    │
-" └───────────────────────────────────────────────────────────────────────────┘
+" -----------------------------------------------------------------------------
+" Standard library types and functions
+"
+" Based on the syntax vim script by Mizuchi <ytj000@gmail.com>
+"   http://www.vim.org/scripts/script.php?script_id=4293
+" -----------------------------------------------------------------------------
 
 syntax keyword cppSTLconstant MB_CUR_MAX
 syntax keyword cppSTLconstant MB_LEN_MAX
@@ -859,12 +778,11 @@ syntax keyword cppSTLfunction get
 " syntax keyword cppSTLfunction wmemchr
 " syntax keyword cppSTLfunction wmemset
 
+" -----------------------------------------------------------------------------
+" C++11 extensions
+" -----------------------------------------------------------------------------
 
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ C++11 extensions                                                          │
-" └───────────────────────────────────────────────────────────────────────────┘
-
-if !exists("cpp_no_cpp11")
+if !exists('cpp_no_cpp11')
     syntax keyword cppSTLconstant nullptr
 
     " containers (array, vector, list, map, set, ...)
@@ -1503,11 +1421,11 @@ if !exists("cpp_no_cpp11")
 endif " C++11
 
 
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ C++14 extensions                                                          │
-" └───────────────────────────────────────────────────────────────────────────┘
+" -----------------------------------------------------------------------------
+" C++14 extensions
+" -----------------------------------------------------------------------------
 
-if !exists("cpp_no_cpp14")
+if !exists('cpp_no_cpp14')
     " chrono
     syntax keyword cppSTLnamespace literals
     syntax keyword cppSTLnamespace chrono_literals
@@ -1574,11 +1492,11 @@ if !exists("cpp_no_cpp14")
 endif " C++14
 
 
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ C++17 extensions                                                          │
-" └───────────────────────────────────────────────────────────────────────────┘
+" -----------------------------------------------------------------------------
+" C++17 extensions
+" -----------------------------------------------------------------------------
 
-if !exists("cpp_no_cpp17")
+if !exists('cpp_no_cpp17')
     " syntax keyword cppSTLfunction data
 
     " algorithm
@@ -1962,13 +1880,12 @@ if !exists("cpp_no_cpp17")
 endif " C++17
 
 
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ C++ library concepts (experimental)                                       │
-" │                                                                           │
-" │ For details see:                                                          │
-" │ - http://en.cppreference.com/w/cpp/language/constraints                   │
-" │ - http://en.cppreference.com/w/cpp/concept                                │
-" └───────────────────────────────────────────────────────────────────────────┘
+" -----------------------------------------------------------------------------
+" C++ library concepts
+" For details see:
+" - http://en.cppreference.com/w/cpp/language/constraints
+" - http://en.cppreference.com/w/cpp/concept
+" -----------------------------------------------------------------------------
 
 if exists('g:cpp_concepts_highlight') && g:cpp_concepts_highlight
     syntax keyword cppStatement concept
@@ -2046,39 +1963,28 @@ if exists('g:cpp_concepts_highlight') && g:cpp_concepts_highlight
 endif " C++ concepts
 
 
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ Boost extensions                                                          │
-" └───────────────────────────────────────────────────────────────────────────┘
-
-if !exists("cpp_no_boost")
+" Boost extensions
+if !exists('cpp_no_boost')
     syntax keyword cppSTLnamespace boost
     syntax keyword cppSTLcast lexical_cast
 endif
 
 
 " Default highlighting
-if version >= 508 || !exists("did_cpp_syntax_inits")
-    if version < 508
-        let did_cpp_syntax_inits = 1
-        command -nargs=+ HiLink hi link <args>
-    else
-        command -nargs=+ HiLink hi def link <args>
-    endif
-    HiLink cppSTLbool         Boolean
-    HiLink cppStorageClass    StorageClass
-    HiLink cppStatement       Statement
-    HiLink cppSTLfunction     Function
-    HiLink cppSTLfunctional   Typedef
-    HiLink cppSTLconstant     Constant
-    HiLink cppSTLnamespace    Constant
-    HiLink cppSTLtype         Typedef
-    HiLink cppSTLexception    Exception
-    HiLink cppSTLiterator     Typedef
-    HiLink cppSTLiterator_tag Typedef
-    HiLink cppSTLenum         Typedef
-    HiLink cppSTLios          Function
-    HiLink cppSTLcast         Statement " be consistent with official syntax
-    HiLink cppRawString       String
-    HiLink cppRawDelimiter    Delimiter
-    delcommand HiLink
-endif
+hi def link cCustomFunc        Function
+hi def link cppSTLbool         Boolean
+hi def link cppStorageClass    StorageClass
+hi def link cppStatement       Statement
+hi def link cppSTLfunction     Function
+hi def link cppSTLfunctional   Typedef
+hi def link cppSTLconstant     Constant
+hi def link cppSTLnamespace    Constant
+hi def link cppSTLtype         Typedef
+hi def link cppSTLexception    Exception
+hi def link cppSTLiterator     Typedef
+hi def link cppSTLiterator_tag Typedef
+hi def link cppSTLenum         Typedef
+hi def link cppSTLios          Function
+hi def link cppSTLcast         Statement
+hi def link cppRawString       String
+hi def link cppRawDelimiter    Delimiter
