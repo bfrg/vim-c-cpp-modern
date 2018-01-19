@@ -1,69 +1,32 @@
+" ==============================================================================
 " Vim syntax file
-"
-" Language:              C Additions
-" Current Maintainer:    Benjamin (bfrg)
-" Previous Maintainers:  Jon Haggblad <jon@haeggblad.com>
-"                        Mikhail Wolfson <mywolfson@gmail.com>
-" Last Change:           13 Oct 2016
-" Version:               0.5
-"
-" Changelog:
-"   0.5 - added custom C syntax highlighting
-"   0.4 - added member variable highlighting
-"   0.3 - integration of aftersyntaxc.vim
-"   0.2 - Cleanup
-"   0.1 - initial version.
+" Language:    C Additions
+" Maintainer:  bfrg <bfrg@users.noreply.github.com>
+" Last Change: 19 Jan 2018
 "
 " Custom C syntax highlighting and highlighting for functions.
 "
-" Based on:
-" - https://github.com/octol/vim-cpp-enhanced-highlight
-" - http://stackoverflow.com/q/736701
+" This syntax file is based on a previous work by Jon Haggblad:
+"   https://github.com/octol/vim-cpp-enhanced-highlight
+" ==============================================================================
 
 
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ Custom highlighting                                                       │
-" └───────────────────────────────────────────────────────────────────────────┘
-
-" Highlight struct, union, enum and typedef as statements (like 'return')
-" syn clear cStructure
-" syn keyword cStatement struct union enum typedef
-
-" The default c.vim in /usr/share/vim/vim80/syntax somehow doesn't highlight
-" inline properly, so we add it here explicitly
+" There is a bug in glib.vim syntax file of vim-scripts/gtk-vim-syntax. It
+" overrides the default c.vim syntax highlighting for the keyword 'inline'. As a
+" quick workaround we simply add it here in order to override glib.vim
 syn keyword cStorageClass inline
 
+" Highlight some additional keywords in the comments
 syn keyword cTodo contained BUG NOTE
 
-
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ Highlight function names                                                  │
-" └───────────────────────────────────────────────────────────────────────────┘
-
-syn match cCustomParen "(" contains=cParen contains=cCppParen
+" Highlight function names
+" From: https://stackoverflow.com/a/773392
+syn match cCustomParen transparent "(" contains=cParen contains=cCppParen
 syn match cCustomFunc "\w\+\s*(\@=" contains=cCustomParen
-hi def link cCustomFunc Function
 
-
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ Highlight member variable names (highlighted as a Function)               │
-" │                                                                           │
-" │ Source: https://github.com/octol/vim-cpp-enhanced-highlight/pull/32       │
-" └───────────────────────────────────────────────────────────────────────────┘
-
-if exists('g:cpp_class_member_highlight') && g:cpp_class_member_highlight
-    syn match cCustomDot "\." contained
-    syn match cCustomPtr "->" contained
-    syn match cCustomMemVar "\(\.\|->\)\w\+" contains=cCustomDot,cCustomPtr
-    hi def link cCustomMemVar Function
-endif
-
-
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ Source: aftersyntaxc.vim                                                  │
-" └───────────────────────────────────────────────────────────────────────────┘
 
 " Common ANSI-standard functions
+" From: http://www.vim.org/scripts/script.php?script_id=3064
 syn keyword cAnsiFunction MULU_ DIVU_ MODU_ MUL_ DIV_ MOD_
 syn keyword cAnsiFunction main typeof
 syn keyword cAnsiFunction open close read write lseek dup dup2
@@ -281,46 +244,50 @@ syn keyword cAnsiName and bitor not_eq xor
 syn keyword cAnsiName and_eq compl or xor_eq
 syn keyword cAnsiName bitand not or_eq
 
-hi def link cAnsiFunction cFunction
-hi def link cAnsiName cIdentifier
-hi def link cFunction Function
-hi def link cIdentifier Identifier
 
 " Booleans
 syn keyword cBoolean true false TRUE FALSE
-hi def link cBoolean Boolean
 
 
-" ┌───────────────────────────────────────────────────────────────────────────┐
-" │ Additional optional highlighting                                          │
-" └───────────────────────────────────────────────────────────────────────────┘
+hi def link cStorageClass  StorageClass
+hi def link cCustomFunc    Function
+hi def link cBoolean       Boolean
+hi def link cAnsiFunction  cFunction
+hi def link cAnsiName      cIdentifier
+hi def link cFunction      Function
+hi def link cIdentifier    Identifier
+
+
+" -----------------------------------------------------------------------------
+" Additional optional highlighting
+" From: http://www.vim.org/scripts/script.php?script_id=3064
+" -----------------------------------------------------------------------------
 
 " Operators
-"syn match cOperator    "\(<<\|>>\|[-+*/%&^|<>!=]\)="
-"syn match cOperator    "<<\|>>\|&&\|||\|++\|--\|->"
-"syn match cOperator    "[.!~*&%<>^|=,+-]"
-"syn match cOperator    "/[^/*=]"me=e-1
-"syn match cOperator    "/$"
-"syn match cOperator "&&\|||"
-"syn match cOperator    "[][]"
-"
-"" Preprocs
-"syn keyword cDefined defined contained containedin=cDefine
-"hi def link cDefined cDefine
+" syn match cOperator "\(<<\|>>\|[-+*/%&^|<>!=]\)="
+" syn match cOperator "<<\|>>\|&&\|||\|++\|--\|->"
+" syn match cOperator "[.!~*&%<>^|=,+-]"
+" syn match cOperator "/[^/*=]"me=e-1
+" syn match cOperator "/$"
+" syn match cOperator "&&\|||"
+" syn match cOperator "[][]"
 
-"" Functions
-"syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine
-"syn match cUserFunctionPointer "(\s*\*\s*\h\w*\s*)\(\s\|\n\)*(" contains=cDelimiter,cOperator
-"
-"hi def link cUserFunction cFunction
-"hi def link cUserFunctionPointer cFunction
-"
-"" Delimiters
-"syn match cDelimiter    "[();\\]"
-"" foldmethod=syntax fix, courtesy of Ivan Freitas
-"syn match cBraces display "[{}]"
+" Preprocs
+" syn keyword cDefined defined contained containedin=cDefine
+" hi def link cDefined cDefine
+
+" Functions
+" syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine
+" syn match cUserFunctionPointer "(\s*\*\s*\h\w*\s*)\(\s\|\n\)*(" contains=cDelimiter,cOperator
+" hi def link cUserFunction cFunction
+" hi def link cUserFunctionPointer cFunction
+
+" Delimiters
+" syn match cDelimiter    "[();\\]"
+" foldmethod=syntax fix, courtesy of Ivan Freitas
+" syn match cBraces display "[{}]"
 
 " Links
-"hi def link cDelimiter Delimiter
+" hi def link cDelimiter Delimiter
 " foldmethod=syntax fix, courtesy of Ivan Freitas
-"hi def link cBraces Delimiter
+" hi def link cBraces Delimiter
