@@ -254,7 +254,7 @@ syntax keyword cppSTLios showpos
 syntax keyword cppSTLios skipws
 syntax keyword cppSTLios unitbuf
 syntax keyword cppSTLios uppercase
-"syntax keyword cppSTLios ws
+" syntax keyword cppSTLios ws
 
 syntax keyword cppSTLiterator back_insert_iterator
 syntax keyword cppSTLiterator bidirectional_iterator
@@ -373,6 +373,7 @@ syntax keyword cppSTLtype slice_array
 syntax keyword cppSTLtype stack
 syntax keyword cppSTLtype stream
 syntax keyword cppSTLtype streambuf
+syntax keyword cppSTLtype streamsize
 syntax keyword cppSTLtype string
 syntax keyword cppSTLtype stringbuf
 syntax keyword cppSTLtype stringstream
@@ -408,6 +409,42 @@ syntax keyword cppSTLtype wstreambuf
 syntax keyword cppSTLtype wstring
 syntax keyword cppSTLtype wstringbuf
 syntax keyword cppSTLtype wstringstream
+
+" locale
+syntax keyword cppSTLtype locale
+syntax keyword cppSTLtype ctype_base
+syntax keyword cppSTLtype codecvt_base
+syntax keyword cppSTLtype messages_base
+syntax keyword cppSTLtype time_base
+syntax keyword cppSTLtype money_base
+syntax keyword cppSTLtype ctype
+syntax keyword cppSTLtype codecvt
+syntax keyword cppSTLtype collate
+syntax keyword cppSTLtype messages
+syntax keyword cppSTLtype time_get
+syntax keyword cppSTLtype time_put
+syntax keyword cppSTLtype num_get
+syntax keyword cppSTLtype num_put
+syntax keyword cppSTLtype numpunct
+syntax keyword cppSTLtype money_get
+syntax keyword cppSTLtype money_put
+syntax keyword cppSTLtype moneypunct
+syntax keyword cppSTLtype ctype_byname
+syntax keyword cppSTLtype codecvt_byname
+syntax keyword cppSTLtype messages_byname
+syntax keyword cppSTLtype collate_byname
+syntax keyword cppSTLtype time_get_byname
+syntax keyword cppSTLtype time_put_byname
+syntax keyword cppSTLtype numpunct_byname
+syntax keyword cppSTLtype moneypunct_byname
+syntax keyword cppSTLfunction use_facet
+syntax keyword cppSTLfunction has_facet
+syntax keyword cppSTLfunction isspace isblank iscntrl isupper islower isalpha
+syntax keyword cppSTLfunction isdigit ispunct isxdigit isalnum isprint isgraph
+
+" std::get is a template function, so when called as std::get<N>(t), we want it
+" to be highlighted as a function
+syntax keyword cppSTLfunction get
 
 " syntax keyword cppSTLfunction abort
 " syntax keyword cppSTLfunction abs
@@ -520,7 +557,6 @@ syntax keyword cppSTLtype wstringstream
 " syntax keyword cppSTLfunction gcount
 " syntax keyword cppSTLfunction generate
 " syntax keyword cppSTLfunction generate_n
-syntax keyword cppSTLfunction get
 " syntax keyword cppSTLfunction get_allocator
 " syntax keyword cppSTLfunction getc
 " syntax keyword cppSTLfunction getchar
@@ -677,7 +713,7 @@ syntax keyword cppSTLfunction get
 " syntax keyword cppSTLfunction signaling_NaN
 " syntax keyword cppSTLfunction sin
 " syntax keyword cppSTLfunction sinh
-" "syntax keyword cppSTLfunction size
+" syntax keyword cppSTLfunction size
 " syntax keyword cppSTLfunction sort
 " syntax keyword cppSTLfunction sort_heap
 " syntax keyword cppSTLfunction splice
@@ -719,7 +755,7 @@ syntax keyword cppSTLfunction get
 " syntax keyword cppSTLfunction swprintf
 " syntax keyword cppSTLfunction swscanf
 " syntax keyword cppSTLfunction sync_with_stdio
-" "syntax keyword cppSTLfunction system
+" syntax keyword cppSTLfunction system
 " syntax keyword cppSTLfunction tan
 " syntax keyword cppSTLfunction tanh
 " syntax keyword cppSTLfunction tellg
@@ -727,8 +763,8 @@ syntax keyword cppSTLfunction get
 " syntax keyword cppSTLfunction terminate_handler
 " syntax keyword cppSTLfunction terminate
 " syntax keyword cppSTLfunction set_terminate
-" "syntax keyword cppSTLfunction test
-" "syntax keyword cppSTLfunction time
+" syntax keyword cppSTLfunction test
+" syntax keyword cppSTLfunction time
 " syntax keyword cppSTLfunction tmpfile
 " syntax keyword cppSTLfunction tmpnam
 " syntax keyword cppSTLfunction tolower
@@ -831,7 +867,7 @@ syntax keyword cppSTLfunction get
 if !exists("cpp_no_cpp11")
     syntax keyword cppSTLconstant nullptr
 
-    " containers (array, vector, list, *map, *set, ...)
+    " containers (array, vector, list, map, set, ...)
     syntax keyword cppSTLtype array
     " syntax keyword cppSTLfunction cbegin cend
     " syntax keyword cppSTLfunction crbegin crend
@@ -1085,7 +1121,7 @@ if !exists("cpp_no_cpp11")
     syntax keyword cppSTLtype codecvt_utf16
     syntax keyword cppSTLtype codecvt_utf8_utf16
     syntax keyword cppSTLtype codecvt_mode
-    " syntax keyword cppSTLfunction isblank
+    syntax keyword cppSTLfunction isblank
     " syntax keyword cppSTLfunction iswblank
 
     " memory
@@ -1475,11 +1511,11 @@ if !exists("cpp_no_cpp14")
     " chrono
     syntax keyword cppSTLnamespace literals
     syntax keyword cppSTLnamespace chrono_literals
-    " add literals h, min, s, ms, us, ns
+    " TODO: add literals h, min, s, ms, us, ns
     " syn keyword cppStorageClass?
 
     " complex
-    " add literals i, if, il
+    " TODO: add literals i, if, il
     " syn keyword cppStorageClass?
 
     " iterator
@@ -1619,6 +1655,7 @@ if !exists("cpp_no_cpp17")
     syntax keyword cppSTLenum copy_options
     syntax keyword cppSTLenum directory_options
     syntax keyword cppSTLConstant preferred_separator
+
     " Note: 'capacity' and 'free' are already set as cppSTLfunction
     " syntax keyword cppSTLconstant capacity
     " syntax keyword cppSTLconstant free
@@ -1756,6 +1793,9 @@ if !exists("cpp_no_cpp17")
     " syntax keyword cppSTLfunction do_deallocate
     " syntax keyword cppSTLfunction do_is_equal
 
+    " mutex
+    syntax keyword cppSTLtype scoped_lock
+
     " new
     syntax keyword cppSTLconstant hardware_destructive_interference_size
     syntax keyword cppSTLconstant hardware_constructive_interference_size
@@ -1781,6 +1821,9 @@ if !exists("cpp_no_cpp17")
     " syntax keyword cppSTLfunction has_value
     " syntax keyword cppSTLfunction value
 
+    " shared_mutex
+    syntax keyword cppSTLtype shared_mutex
+
     " string_view
     syntax keyword cppSTLtype basic_string_view
     syntax keyword cppSTLtype string_view
@@ -1793,9 +1836,6 @@ if !exists("cpp_no_cpp17")
     " system_error
     syntax keyword cppSTLbool is_error_code_enum_v
     syntax keyword cppSTLbool is_error_condition_enum_v
-
-    " thread
-    syntax keyword cppSTLtype shared_mutex
 
     " tuple
     syntax keyword cppSTLconstant tuple_size_v
@@ -2013,7 +2053,7 @@ endif " C++ concepts
 if !exists("cpp_no_boost")
     syntax keyword cppSTLnamespace boost
     syntax keyword cppSTLcast lexical_cast
-endif " boost
+endif
 
 
 " Default highlighting
