@@ -46,9 +46,10 @@ hi! def link cppModifier StorageClass
 
 " Highlight function names
 " Based on discussion http://stackoverflow.com/q/736701
-syn match cCustomParen transparent "(" contains=cParen contains=cCppParen
-syn match cCustomFunc  "\w\+\s*(\@="
-
+if !exists('g:cpp_no_function_highlight')
+    syn match cCustomParen transparent "(" contains=cParen contains=cCppParen
+    syn match cCustomFunc  "\w\+\s*(\@="
+endif
 
 " -----------------------------------------------------------------------------
 " Standard library types and functions
@@ -1412,6 +1413,7 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLconstant piecewise_construct
     syntax keyword cppSTLfunction declval
     syntax keyword cppSTLfunction forward
+    syntax keyword cppSTLfunction move
     syntax keyword cppSTLfunction move_if_noexcept
 
     " raw string literals

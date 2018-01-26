@@ -31,6 +31,12 @@ library. It further provides syntax highlighting of C++ library concepts.
 
 ## Optional features
 
+To disable function highlighting, set
+```vim
+let g:cpp_no_function_highlight = 1
+```
+**Note:** this will affect both C and C++ files.
+
 To enable highlighting of C++ library concepts, set
 ```vim
 let g:cpp_concepts_highlight = 1

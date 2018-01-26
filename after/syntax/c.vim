@@ -21,8 +21,10 @@ syn keyword cTodo contained BUG NOTE
 
 " Highlight function names
 " From: https://stackoverflow.com/a/773392
-syn match cCustomParen transparent "(" contains=cParen contains=cCppParen
-syn match cCustomFunc "\w\+\s*(\@=" contains=cCustomParen
+if !exists('g:cpp_no_function_highlight')
+    syn match cCustomParen transparent "(" contains=cParen contains=cCppParen
+    syn match cCustomFunc "\w\+\s*(\@=" contains=cCustomParen
+endif
 
 
 " Common ANSI-standard functions
