@@ -41,8 +41,9 @@ To enable highlighting of C++ library concepts, set
 ```vim
 let g:cpp_concepts_highlight = 1
 ```
-If enabled, the named requirements like `MoveConstructible` will be highlighted
-as standard library types.
+This will highlight the keywords `concept` and `requires`. All named
+requirements like `MoveConstructible` will be highlighted as standard library
+types.
 
 
 ## Installation
