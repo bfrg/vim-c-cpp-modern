@@ -2,7 +2,7 @@
 " Vim syntax file
 " Language:    C++ (extended for C++11/14/17/concepts)
 " Maintainer:  bfrg <bfrg@users.noreply.github.com>
-" Last Change: 19 Jan 2018
+" Last Change: Feb 1, 2018
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/concepts)
 "
@@ -1834,6 +1834,11 @@ if !exists('cpp_no_cpp17')
     syntax keyword cppSTLbool is_swappable_with_v
     syntax keyword cppSTLbool is_nothrow_swappable_v
     syntax keyword cppSTLbool is_nothrow_swappable_with_v
+    syntax keyword cppSTLbool is_invocable_v
+    syntax keyword cppSTLbool is_invocable_r_v
+    syntax keyword cppSTLbool is_nothrow_invocable_v
+    syntax keyword cppSTLbool is_nothrow_invocable_r_v
+    syntax keyword cppSTLbool is_aggregate_v
     syntax keyword cppSTLconstant alignment_of_v
     syntax keyword cppSTLconstant rank_v
     syntax keyword cppSTLconstant extent_v
@@ -1849,6 +1854,13 @@ if !exists('cpp_no_cpp17')
     syntax keyword cppSTLtype is_swappable_with
     syntax keyword cppSTLtype is_nothrow_swappable
     syntax keyword cppSTLtype is_nothrow_swappable_with
+    syntax keyword cppSTLtype is_invocable
+    syntax keyword cppSTLtype is_invocable_r
+    syntax keyword cppSTLtype is_nothrow_invocable
+    syntax keyword cppSTLtype is_nothrow_invocable_r
+    syntax keyword cppSTLtype invoke_result
+    syntax keyword cppSTLtype invoke_result_t
+    syntax keyword cppSTLtype is_aggregate
 
     " unordered_map, unordered_set, unordered_multimap, unordered_multiset
     syntax keyword cppSTLtype node_type
@@ -1880,6 +1892,17 @@ if !exists('cpp_no_cpp17')
     " syntax keyword cppSTLfunction index
     " syntax keyword cppSTLfunction visit
 endif " C++17
+
+
+" -----------------------------------------------------------------------------
+" C++20 extensions
+" -----------------------------------------------------------------------------
+
+if !exists('cpp_no_cpp20')
+    " type_traits
+    syntax keyword cppSTLtype remove_cvref remove_cvref_t
+    " syntax keyword cppSTLtype endian
+endif
 
 
 " -----------------------------------------------------------------------------
