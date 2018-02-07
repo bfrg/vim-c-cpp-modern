@@ -2,7 +2,7 @@
 " Vim syntax file
 " Language:    C++ (extended for C++11/14/17/concepts)
 " Maintainer:  bfrg <bfrg@users.noreply.github.com>
-" Last Change: Feb 1, 2018
+" Last Change: Feb 7, 2018
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/concepts)
 "
@@ -1572,9 +1572,39 @@ if !exists('cpp_no_cpp17')
     syntax keyword cppSTLtype file_time_type
     syntax keyword cppSTLenum file_type
     syntax keyword cppSTLenum perms
+    syntax keyword cppSTLenum perm_options
     syntax keyword cppSTLenum copy_options
     syntax keyword cppSTLenum directory_options
-    syntax keyword cppSTLConstant preferred_separator
+    syntax keyword cppSTLenum format
+    syntax keyword cppSTLconstant native_format generic_format auto_format
+    syntax keyword cppSTLconstant preferred_separator
+    syntax keyword cppSTLconstant skip_existing
+    syntax keyword cppSTLconstant overwrite_existing
+    syntax keyword cppSTLconstant update_existing
+    syntax keyword cppSTLconstant recursive
+    syntax keyword cppSTLconstant copy_symlinks
+    syntax keyword cppSTLconstant skip_symlinks
+    syntax keyword cppSTLconstant directories_only
+    syntax keyword cppSTLconstant create_symlinks
+    syntax keyword cppSTLconstant create_hard_links
+    syntax keyword cppSTLconstant owner_read owner_write owner_exec owner_all
+    syntax keyword cppSTLconstant group_read group_write group_exec group_all
+    syntax keyword cppSTLconstant others_read others_write others_exec others_all
+    syntax keyword cppSTLconstant set_uid set_gid sticky_bit
+    syntax keyword cppSTLconstant follow_directory_symlink skip_permission_denied
+    " Note: following keywords are very likely to coincide with some user-defined variables
+    " syntax keyword cppSTLconstant all mask unknown
+    " syntax keyword cppSTLconstant replace add remove nofollow
+    " syntax keyword cppSTLconstant none
+    " syntax keyword cppSTLconstant not_found
+    " syntax keyword cppSTLconstant regular
+    " syntax keyword cppSTLconstant directory
+    " syntax keyword cppSTLconstant symlink
+    " syntax keyword cppSTLconstant block
+    " syntax keyword cppSTLconstant character
+    " syntax keyword cppSTLconstant fifo
+    " syntax keyword cppSTLconstant socket
+    " syntax keyword cppSTLconstant unknown
 
     " Note: 'capacity' and 'free' are already set as cppSTLfunction
     " syntax keyword cppSTLconstant capacity
@@ -1902,6 +1932,8 @@ if !exists('cpp_no_cpp20')
     " type_traits
     syntax keyword cppSTLtype remove_cvref remove_cvref_t
     " syntax keyword cppSTLtype endian
+
+    " TODO: add types from http://en.cppreference.com/w/cpp/header/compare
 endif
 
 
