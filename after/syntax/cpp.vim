@@ -115,6 +115,7 @@ syntax keyword cppSTLexception overflow_error
 syntax keyword cppSTLexception range_error
 syntax keyword cppSTLexception runtime_error
 syntax keyword cppSTLexception underflow_error
+syntax keyword cppSTLexception failure
 
 syntax keyword cppSTLfunctional binary_function
 syntax keyword cppSTLfunctional binary_negate
@@ -139,42 +140,41 @@ syntax keyword cppSTLfunctional plus
 syntax keyword cppSTLfunctional unary_function
 syntax keyword cppSTLfunctional unary_negate
 
-syntax keyword cppSTLios boolalpha
-syntax keyword cppSTLios dec
-syntax keyword cppSTLios defaultfloat
-syntax keyword cppSTLios endl
-syntax keyword cppSTLios ends
-syntax keyword cppSTLios fixed
-syntax keyword cppSTLios flush
-syntax keyword cppSTLios get_money
-syntax keyword cppSTLios get_time
-syntax keyword cppSTLios hex
-syntax keyword cppSTLios hexfloat
-syntax keyword cppSTLios internal
-syntax keyword cppSTLios noboolalpha
-syntax keyword cppSTLios noshowbase
-syntax keyword cppSTLios noshowpoint
-syntax keyword cppSTLios noshowpos
-syntax keyword cppSTLios noskipws
-syntax keyword cppSTLios nounitbuf
-syntax keyword cppSTLios nouppercase
-syntax keyword cppSTLios oct
-syntax keyword cppSTLios put_money
-syntax keyword cppSTLios put_time
 syntax keyword cppSTLios resetiosflags
-syntax keyword cppSTLios scientific
+syntax keyword cppSTLios setiosflags
 syntax keyword cppSTLios setbase
 syntax keyword cppSTLios setfill
-syntax keyword cppSTLios setiosflags
 syntax keyword cppSTLios setprecision
 syntax keyword cppSTLios setw
-syntax keyword cppSTLios showbase
-syntax keyword cppSTLios showpoint
-syntax keyword cppSTLios showpos
-syntax keyword cppSTLios skipws
-syntax keyword cppSTLios unitbuf
-syntax keyword cppSTLios uppercase
+syntax keyword cppSTLios endl
+syntax keyword cppSTLios ends
+syntax keyword cppSTLios flush
 " syntax keyword cppSTLios ws
+
+syntax keyword cppSTLios boolalpha noboolalpha
+syntax keyword cppSTLios showbase noshowbase
+syntax keyword cppSTLios showpoint noshowpoint
+syntax keyword cppSTLios showpos noshowpos
+syntax keyword cppSTLios skipws noskipws
+syntax keyword cppSTLios uppercase nouppercase
+syntax keyword cppSTLios unitbuf nounitbuf
+syntax keyword cppSTLios internal left right
+syntax keyword cppSTLios dec hex oct
+syntax keyword cppSTLios fixed scientific hexfloat defaultfloat
+
+syntax keyword cppSTLtype fmtflags
+syntax keyword cppSTLtype iostate
+syntax keyword cppSTLtype openmode
+
+" syntax keyword cppSTLconstant dec oct hex basefield
+" syntax keyword cppSTLconstant left right internal adjustfield
+" syntax keyword cppSTLconstant scientific fixed floatfield
+" syntax keyword cppSTLconstant boolalpha
+" syntax keyword cppSTLconstant showbase showpoint showpos
+" syntax keyword cppSTLconstant skipws
+" syntax keyword cppSTLconstant unitbuf
+" syntax keyword cppSTLconstant uppercase
+" syntax keyword cppSTLconstant app binary in out trunc ate
 
 syntax keyword cppSTLiterator back_insert_iterator
 syntax keyword cppSTLiterator bidirectional_iterator
@@ -204,6 +204,8 @@ syntax keyword cppSTLnamespace rel_ops
 syntax keyword cppSTLnamespace std
 syntax keyword cppSTLnamespace experimental
 
+syntax keyword cppSTLtype Init
+syntax keyword cppSTLtype event_callback
 syntax keyword cppSTLtype allocator
 syntax keyword cppSTLtype auto_ptr
 syntax keyword cppSTLtype basic_filebuf
@@ -249,6 +251,8 @@ syntax keyword cppSTLtype imaxdiv_t
 syntax keyword cppSTLtype indirect_array
 syntax keyword cppSTLtype int_type
 syntax keyword cppSTLtype ios_base
+syntax keyword cppSTLtype basic_ios
+syntax keyword cppSTLtype fpos
 syntax keyword cppSTLtype iostream
 syntax keyword cppSTLtype istream
 syntax keyword cppSTLtype istringstream
@@ -285,6 +289,7 @@ syntax keyword cppSTLtype priority_queue
 syntax keyword cppSTLtype queue
 syntax keyword cppSTLtype reference
 syntax keyword cppSTLtype second_type
+syntax keyword cppSTLtype seekdir
 syntax keyword cppSTLtype sequence_buffer
 syntax keyword cppSTLtype set
 syntax keyword cppSTLtype sig_atomic_t
@@ -293,6 +298,8 @@ syntax keyword cppSTLtype slice_array
 syntax keyword cppSTLtype stack
 syntax keyword cppSTLtype stream
 syntax keyword cppSTLtype streambuf
+syntax keyword cppSTLtype streamoff
+syntax keyword cppSTLtype streampos
 syntax keyword cppSTLtype streamsize
 syntax keyword cppSTLtype string
 syntax keyword cppSTLtype stringbuf
@@ -326,6 +333,7 @@ syntax keyword cppSTLtype wofstream
 syntax keyword cppSTLtype wostream
 syntax keyword cppSTLtype wostringstream
 syntax keyword cppSTLtype wstreambuf
+syntax keyword cppSTLtype wstreampos
 syntax keyword cppSTLtype wstring
 syntax keyword cppSTLtype wstringbuf
 syntax keyword cppSTLtype wstringstream
@@ -979,6 +987,12 @@ if !exists('cpp_no_cpp11')
     " syntax keyword cppSTLfunction mem_fn
     " syntax keyword cppSTLfunction ref cref
 
+    " iomanip
+    " syntax keyword cppSTLios get_money
+    " syntax keyword cppSTLios get_time
+    " syntax keyword cppSTLios put_money
+    " syntax keyword cppSTLios put_time
+
     " iterator
     syntax keyword cppSTLiterator move_iterator
     " syntax keyword cppSTLfunction make_move_iterator
@@ -1022,8 +1036,9 @@ if !exists('cpp_no_cpp11')
     " initializer_list
     syntax keyword cppSTLtype initializer_list
 
-    " io
+    " ios
     syntax keyword cppSTLenum io_errc
+    " syntax keyword cppSTLtype is_error_code_enum
     " syntax keyword cppSTLfunction iostream_category
     " syntax keyword cppSTLfunction vscanf vfscanf vsscanf
     " syntax keyword cppSTLfunction snprintf vsnprintf
@@ -1256,7 +1271,7 @@ if !exists('cpp_no_cpp11')
 
     " system_error
     syntax keyword cppSTLenum errc
-    syntax keyword cppSTLtype system_error
+    syntax keyword cppSTLexception system_error
     syntax keyword cppSTLtype error_code
     syntax keyword cppSTLtype error_condition
     syntax keyword cppSTLtype error_category
@@ -1437,6 +1452,9 @@ if !exists('cpp_no_cpp14')
     " complex
     " TODO: add literals i, if, il
     " syn keyword cppStorageClass?
+
+    " iomanip
+    " syntax keyword cppSTLfunction quoted
 
     " iterator
     " syntax keyword cppSTLfunction make_reverse_iterator
