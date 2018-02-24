@@ -1,9 +1,10 @@
 " ==============================================================================
 " Vim syntax file
-" Language:    C Additions
+" Language:        C Additions
 " Original Author: Mikhail Wolfson <mywolfson@gmail.com>
-" Maintainer:  bfrg <bfrg@users.noreply.github.com>
-" Last Change:     Feb 23, 2018
+" Maintainer:      bfrg <bfrg@users.noreply.github.com>
+" Website:         https://github.com/bfrg/vim-cpp-modern
+" Last Change:     Feb 24, 2018
 "
 " Extended C syntax highlighting including highlighting for user-defined
 " functions.
@@ -12,11 +13,6 @@
 "   https://github.com/octol/vim-cpp-enhanced-highlight
 " ==============================================================================
 
-
-" There is a bug in glib.vim syntax file of vim-scripts/gtk-vim-syntax. It
-" overrides the default c.vim syntax highlighting for the keyword 'inline'. As a
-" quick workaround we simply add it here in order to override glib.vim
-syn keyword cStorageClass inline
 
 " Highlight some additional keywords in the comments
 syn keyword cTodo contained BUG NOTE
