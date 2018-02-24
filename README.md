@@ -15,11 +15,11 @@ library. It further provides syntax highlighting of C++ library concepts.
   `final`, `inline`, `explicit` and `export`. These are now under the
   highlighting group `StorageClass` (Vim's default syntax file puts them under
   `Type`).
-- Amost all C++ standard library functions have been commented out because words
-  that end with parentheses are highlighted as functions anyway. So we don't
-  have to explicitly list each library function in here. The only exceptions are
-  function templates, which sometimes must be called with template parameters.
-  Example: `std::make_unique<Foo>(bar)`.
+- Almost all C++ standard library functions have been commented out because
+  words that end with parentheses are highlighted as functions anyway. So we
+  don't have to explicitly list each library function in here. The only
+  exceptions are function templates, which sometimes must be called with
+  template parameters. Example: `std::make_unique<Foo>(bar)`.
 - Another reason why almost all functions have been commented out is because if
   someone defines his/her own type and the name collides with a library's
   function name, the type will be highlighted as a function. This can happen
