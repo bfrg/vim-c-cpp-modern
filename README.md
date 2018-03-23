@@ -85,3 +85,8 @@ let c_no_curly_error = 1
 - http://www.vim.org/scripts/script.php?script_id=1640
 - http://www.vim.org/scripts/script.php?script_id=3064
 - https://github.com/vim-jp/vim-cpp/issues/16
+
+
+## License
+
+Distributed under the same terms as Vim itself. See `:help license`.
