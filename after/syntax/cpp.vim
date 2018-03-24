@@ -1,8 +1,10 @@
 " ==============================================================================
 " Vim syntax file
-" Language:    C++ (extended for C++11/14/17/concepts)
-" Maintainer:  bfrg <bfrg@users.noreply.github.com>
-" Last Change: Feb 7, 2018
+" Language:        C++ (extended for C++11/14/17/concepts)
+" Original Author: Jon Haggblad <https://github.com/octol>
+" Maintainer:      bfrg <bfrg@users.noreply.github.com>
+" Website:         https://github.com/bfrg/vim-cpp-modern
+" Last Change:     Mar 24, 2018
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/concepts)
 "
@@ -34,29 +36,19 @@
 " ==============================================================================
 
 
-" Custom highlighting
-" I don't like the way the keywords {inline, virtual, explicit, export,
-" override, final} are highlighted with the default syntax file (by default they
-" are highlighted as Type). So relink it to a different highlighting group:
-hi! def link cppModifier StorageClass
-
-" Alternatively, we could append them to cppStorageClass
-" syn keyword cppStorageClass inline virtual explicit export override final
-
-
 " Highlight function names
 " Based on discussion http://stackoverflow.com/q/736701
 if !exists('g:cpp_no_function_highlight')
-    syn match cCustomParen transparent "(" contains=cParen contains=cCppParen
-    syn match cCustomFunc  "\w\+\s*(\@="
+    syntax match cCustomParen transparent "(" contains=cParen contains=cCppParen
+    syntax match cCustomFunc  "\w\+\s*(\@="
 endif
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Standard library types and functions
 "
 " Based on the syntax vim script by Mizuchi <ytj000@gmail.com>
 "   http://www.vim.org/scripts/script.php?script_id=4293
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 syntax keyword cppSTLconstant MB_CUR_MAX
 syntax keyword cppSTLconstant MB_LEN_MAX
@@ -186,6 +178,7 @@ syntax keyword cppSTLiterator input_iterator
 syntax keyword cppSTLiterator insert_iterator
 syntax keyword cppSTLiterator istream_iterator
 syntax keyword cppSTLiterator istreambuf_iterator
+syntax keyword cppSTLiterator ostreambuf_iterator
 syntax keyword cppSTLiterator iterator
 syntax keyword cppSTLiterator ostream_iterator
 syntax keyword cppSTLiterator output_iterator
@@ -253,6 +246,7 @@ syntax keyword cppSTLtype int_type
 syntax keyword cppSTLtype ios_base
 syntax keyword cppSTLtype basic_ios
 syntax keyword cppSTLtype fpos
+syntax keyword cppSTLtype ios
 syntax keyword cppSTLtype iostream
 syntax keyword cppSTLtype istream
 syntax keyword cppSTLtype istringstream
@@ -326,6 +320,7 @@ syntax keyword cppSTLtype wfilebuf
 syntax keyword cppSTLtype wfstream
 syntax keyword cppSTLtype wifstream
 syntax keyword cppSTLtype wint_t
+syntax keyword cppSTLtype wios
 syntax keyword cppSTLtype wiostream
 syntax keyword cppSTLtype wistream
 syntax keyword cppSTLtype wistringstream
@@ -787,9 +782,9 @@ syntax keyword cppSTLfunction get
 " syntax keyword cppSTLfunction wmemchr
 " syntax keyword cppSTLfunction wmemset
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " C++11 extensions
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 if !exists('cpp_no_cpp11')
     syntax keyword cppSTLconstant nullptr
@@ -1438,9 +1433,9 @@ if !exists('cpp_no_cpp11')
 endif " C++11
 
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " C++14 extensions
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 if !exists('cpp_no_cpp14')
     " chrono
@@ -1512,9 +1507,9 @@ if !exists('cpp_no_cpp14')
 endif " C++14
 
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " C++17 extensions
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 if !exists('cpp_no_cpp17')
     " syntax keyword cppSTLfunction data
@@ -1942,9 +1937,9 @@ if !exists('cpp_no_cpp17')
 endif " C++17
 
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " C++20 extensions
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 if !exists('cpp_no_cpp20')
     " type_traits
@@ -1955,12 +1950,12 @@ if !exists('cpp_no_cpp20')
 endif
 
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " C++ library concepts
 " For details see:
 " - http://en.cppreference.com/w/cpp/language/constraints
 " - http://en.cppreference.com/w/cpp/concept
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 if exists('g:cpp_concepts_highlight') && g:cpp_concepts_highlight
     syntax keyword cppStatement concept
