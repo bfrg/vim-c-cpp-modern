@@ -2058,3 +2058,20 @@ hi def link cppSTLios          Function
 hi def link cppSTLcast         Statement
 hi def link cppRawString       String
 hi def link cppRawDelimiter    Delimiter
+
+
+" Highlight all standard C++ keywords as Statement
+" This is very similar to what other IDEs and editors do
+if exists('g:cpp_simple_highlight') && g:cpp_simple_highlight
+    hi! link cppModifier     Statement
+    hi! link cppStructure    Statement
+    hi! link cppExceptions   Statement
+    hi! link cppStorageClass Statement
+    hi! link cppSTLexception Typedef
+else
+    " I don't like the way the keywords {inline, virtual, explicit, export,
+    " override, final} are highlighted with the default syntax file (by default
+    " they are highlighted as Type). Let's link them to a different highlighting
+    " group
+    hi! link cppModifier   StorageClass
+endif

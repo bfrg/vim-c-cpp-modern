@@ -14,7 +14,7 @@ library. It further provides syntax highlighting of C++ library concepts.
 - I added my own C/C++ highlighting for the keywords `virtual`, `override`,
   `final`, `inline`, `explicit` and `export`. These are now under the
   highlighting group `StorageClass` (Vim's default syntax file puts them under
-  `Type`).
+  `Type`). Optionally these can be highlighted as `Statement` (see below).
 - Almost all C++ standard library functions have been commented out because
   words that end with parentheses are highlighted as functions anyway. So we
   don't have to explicitly list each library function in here. The only
@@ -34,6 +34,12 @@ library. It further provides syntax highlighting of C++ library concepts.
 To disable function highlighting, set
 ```vim
 let g:cpp_no_function_highlight = 1
+```
+**Note:** this will affect both C and C++ files.
+
+To highlight **all** standard C and C++ keywords as `Statement`, set
+```vim
+let g:cpp_simple_highlight = 1
 ```
 **Note:** this will affect both C and C++ files.
 

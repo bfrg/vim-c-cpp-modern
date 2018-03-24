@@ -4,7 +4,7 @@
 " Original Author: Mikhail Wolfson <mywolfson@gmail.com>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Feb 24, 2018
+" Last Change:     Mar 24, 2018
 "
 " Extended C syntax highlighting including highlighting for user-defined
 " functions.
@@ -248,7 +248,7 @@ syn keyword cAnsiName bitand not or_eq
 syn keyword cBoolean true false TRUE FALSE
 
 
-hi def link cStorageClass  StorageClass
+" Default highlighting
 hi def link cCustomFunc    Function
 hi def link cBoolean       Boolean
 hi def link cAnsiFunction  cFunction
@@ -257,10 +257,19 @@ hi def link cFunction      Function
 hi def link cIdentifier    Identifier
 
 
-" -----------------------------------------------------------------------------
+" Highlight all standard C keywords as Statement
+" This is very similar to what other IDEs and editors do
+if exists('g:cpp_simple_highlight') && g:cpp_simple_highlight
+    hi! link cStorageClass Statement
+    hi! link cStructure    Statement
+    hi! link cLabel        Statement
+endif
+
+
+" ------------------------------------------------------------------------------
 " Additional optional highlighting
 " From: http://www.vim.org/scripts/script.php?script_id=3064
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Operators
 " syn match cOperator "\(<<\|>>\|[-+*/%&^|<>!=]\)="
