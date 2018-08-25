@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Mar 24, 2018
+" Last Change:     Aug 25, 2018
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/concepts)
 "
@@ -36,12 +36,6 @@
 " ==============================================================================
 
 
-" Highlight function names
-" Based on discussion http://stackoverflow.com/q/736701
-if !exists('g:cpp_no_function_highlight')
-    syntax match cCustomParen transparent "(" contains=cParen contains=cCppParen
-    syntax match cCustomFunc  "\w\+\s*(\@="
-endif
 
 " ------------------------------------------------------------------------------
 " Standard library types and functions
@@ -2041,7 +2035,6 @@ endif
 
 
 " Default highlighting
-hi def link cCustomFunc        Function
 hi def link cppSTLbool         Boolean
 hi def link cppStorageClass    StorageClass
 hi def link cppStatement       Statement
