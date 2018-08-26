@@ -1,12 +1,11 @@
 # vim-cpp-modern: Enhanced C and C++ syntax highlighting
 
-This plugin provides additional syntax highlighting for C and C++11/14/17
-development in Vim. It provides highlighting of user-defined functions, as well
-as all types, helper types and helper template variables in the C++ standard
-library. It further provides syntax highlighting of C++ library concepts.
+This plugin provides additional syntax highlighting for C and C++11/14/17/20
+development in Vim. It provides highlighting of functions, as well as all types,
+helper types and helper template variables in the C++ standard library. It also
+adds syntax highlighting of C++20 library concepts.
 
-**Note:** This syntax file is based on:
-[vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight).
+The syntax file is based on [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight).
 
 
 ## Difference to vim-cpp-enhanced-highlight
@@ -14,57 +13,46 @@ library. It further provides syntax highlighting of C++ library concepts.
 - I added my own C/C++ highlighting for the keywords `virtual`, `override`,
   `final`, `inline`, `explicit` and `export`. These are now under the
   highlighting group `StorageClass` (Vim's default syntax file puts them under
-  `Type`). Optionally these can be highlighted as `Statement` (see below).
+  `Type`).
 - Almost all C++ standard library functions have been commented out because
-  words that end with parentheses are highlighted as functions anyway. So we
-  don't have to explicitly list each library function in here. The only
+  words followed by an opening parenthesis are highlighted as functions anyway.
+  So we don't have to explicitly list each library function in here. The only
   exceptions are function templates, which sometimes must be called with
-  template parameters. Example: `std::make_unique<Foo>(bar)`.
-- Another reason why almost all functions have been commented out is because if
-  someone defines his/her own type and the name collides with a library's
-  function name, the type will be highlighted as a function. This can happen
-  quite often when so many keywords are added to the syntax file. I have noticed
-  this when implementing some metafunctions like `apply` or `find_if`.
-- User-defined function templates or class members won't be highlighted. These
-  features were removed because they were too slow and never worked 100%.
+  template parameters, like `std::make_unique<Foo>(bar)`.
+- Another reason why almost all library functions have been commented out is
+  because if someone had defined his/her own type and the name collided with a
+  library's function name, the type would have been highlighted as a function.
+  This can happen quite often when too many keywords are added to the syntax
+  file. I have noticed this when implementing metafunctions like `apply` or
+  `find_if`.
+- User-defined function templates or class members won't be highlighted. Both
+  features were removed because they made scrolling very slow and never worked
+  100%.
 
 
 ## Optional features
 
-To disable function highlighting, set
 ```vim
+" Disable function highlighting (affects both C and C++ files)
 let g:cpp_no_function_highlight = 1
-```
-**Note:** this will affect both C and C++ files.
 
-To highlight **all** standard C and C++ keywords as `Statement`, set
-```vim
+" Put all standard C and C++ keywords under Vim's highlight group `Statement`
+" (affects both C and C++ files)
 let g:cpp_simple_highlight = 1
-```
-**Note:** this will affect both C and C++ files.
 
-To enable highlighting of C++ library concepts, set
-```vim
+" Enable highlighting of C++20 library concepts
 let g:cpp_concepts_highlight = 1
 ```
-This will highlight the keywords `concept` and `requires`. All named
-requirements like `MoveConstructible` will be highlighted as standard library
-types.
+
+The last option will highlight the C++ keywords `concept` and `requires`. All
+C++ [named requirements](https://en.cppreference.com/w/cpp/named_req) like
+`MoveConstructible` will be highlighted as standard library types.
 
 
 ## Installation
 
-#### vim-plug
-
-If [vim-plug](https://github.com/junegunn/vim-plug) is your preferred plugin
-manager, add the following to your `.vimrc`
-```vim
-Plug 'bfrg/vim-cpp-modern'
-```
-
-#### Manual installation
-
-Copy `cpp.vim` (and optionally `c.vim`) to `~/.vim/after/syntax`.
+Copy both `c.vim` and `cpp.vim` into your `~/.vim/after/syntax` directory, or
+use your preferred plugin manager.
 
 
 ## Issues
@@ -80,6 +68,7 @@ As a workaround set
 ```vim
 let c_no_curly_error = 1
 ```
+See also `:help ft-c-syntax` for further options.
 
 
 ## Resources
