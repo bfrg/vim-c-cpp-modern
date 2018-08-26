@@ -4,7 +4,7 @@
 " Original Author: Mikhail Wolfson <mywolfson@gmail.com>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Mar 24, 2018
+" Last Change:     Aug 25, 2018
 "
 " Extended C syntax highlighting including highlighting for user-defined
 " functions.
@@ -17,11 +17,11 @@
 " Highlight some additional keywords in the comments
 syn keyword cTodo contained BUG NOTE
 
+
 " Highlight function names
-" From: https://stackoverflow.com/a/773392
 if !exists('g:cpp_no_function_highlight')
-    syn match cCustomParen transparent "(" contains=cParen contains=cCppParen
-    syn match cCustomFunc "\w\+\s*(\@=" contains=cCustomParen
+    syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
+    hi def link cUserFunction Function
 endif
 
 
@@ -249,12 +249,9 @@ syn keyword cBoolean true false TRUE FALSE
 
 
 " Default highlighting
-hi def link cCustomFunc    Function
-hi def link cBoolean       Boolean
-hi def link cAnsiFunction  cFunction
-hi def link cAnsiName      cIdentifier
-hi def link cFunction      Function
-hi def link cIdentifier    Identifier
+hi def link cBoolean     Boolean
+hi def link cAnsiName    cIdentifier
+hi def link cIdentifier  Identifier
 
 
 " Highlight all standard C keywords as Statement
@@ -284,18 +281,9 @@ endif
 " syn keyword cDefined defined contained containedin=cDefine
 " hi def link cDefined cDefine
 
-" Functions
-" syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine
-" syn match cUserFunctionPointer "(\s*\*\s*\h\w*\s*)\(\s\|\n\)*(" contains=cDelimiter,cOperator
-" hi def link cUserFunction cFunction
-" hi def link cUserFunctionPointer cFunction
-
 " Delimiters
 " syn match cDelimiter    "[();\\]"
-" foldmethod=syntax fix, courtesy of Ivan Freitas
-" syn match cBraces display "[{}]"
-
-" Links
 " hi def link cDelimiter Delimiter
 " foldmethod=syntax fix, courtesy of Ivan Freitas
+" syn match cBraces display "[{}]"
 " hi def link cBraces Delimiter
