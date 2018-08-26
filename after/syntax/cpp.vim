@@ -1938,9 +1938,24 @@ endif " C++17
 if !exists('cpp_no_cpp20')
     " type_traits
     syntax keyword cppSTLtype remove_cvref remove_cvref_t
+    syntax keyword cppSTLtype is_nothrow_convertible
+    syntax keyword cppSTLbool is_nothrow_convertible_v
     " syntax keyword cppSTLtype endian
 
-    " TODO: add types from http://en.cppreference.com/w/cpp/header/compare
+    " compare
+    syntax keyword cppSTLtype weak_ordering strong_ordering partial_ordering
+    syntax keyword cppSTLtype weak_equality strong_equality
+    syntax keyword cppSTLtype common_comparison_category common_comparison_category_t
+    " syntax keyword cppSTLfunction is_eq is_neq is_lt is_gt is_lteq is_gteq
+    " syntax keyword cppSTLfunction strong_order weak_order partial_order
+    " syntax keyword cppSTLfunction strong_equal weak_equal
+
+    " contract
+    syntax keyword cppSTLtype contract_violation
+
+    " syncstream
+    syntax keyword cppSTLtype basic_syncbuf basic_osyncstream
+    syntax keyword cppSTLtype syncbuf wsyncbuf osyncstream wosyncstream
 endif
 
 
@@ -1948,7 +1963,7 @@ endif
 " C++ library concepts
 " For details see:
 " - http://en.cppreference.com/w/cpp/language/constraints
-" - http://en.cppreference.com/w/cpp/concept
+" - https://en.cppreference.com/w/cpp/named_req
 " ------------------------------------------------------------------------------
 
 if exists('g:cpp_concepts_highlight') && g:cpp_concepts_highlight
