@@ -211,6 +211,9 @@ syntax keyword cppSTLtype binder2nd
 syntax keyword cppSTLtype bitset
 syntax keyword cppSTLtype char_traits
 syntax keyword cppSTLtype char_type
+syntax keyword cppSTLtype pos_type
+syntax keyword cppSTLtype off_type
+syntax keyword cppSTLtype state_type
 syntax keyword cppSTLtype const_mem_fun1_t
 syntax keyword cppSTLtype const_mem_fun_ref1_t
 syntax keyword cppSTLtype const_mem_fun_ref_t
@@ -2028,8 +2031,6 @@ if exists('g:cpp_concepts_highlight') && g:cpp_concepts_highlight
     syntax keyword cppSTLtype Clock
     syntax keyword cppSTLtype TrivialClock
     syntax keyword cppSTLtype CharTraits
-    syntax keyword cppSTLtype pos_type
-    syntax keyword cppSTLtype off_type
     syntax keyword cppSTLtype BitmaskType
     syntax keyword cppSTLtype NumericType
     syntax keyword cppSTLtype RegexTraits
