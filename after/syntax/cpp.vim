@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Aug 26, 2018
+" Last Change:     Aug 27, 2018
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/20)
 "
@@ -1963,8 +1963,7 @@ endif
 " - https://en.cppreference.com/w/cpp/named_req
 
 if exists('g:cpp_concepts_highlight') && g:cpp_concepts_highlight
-    syntax keyword cppStatement concept
-    syntax keyword cppStorageClass requires
+    syntax keyword cppStatement concept requires
     syntax keyword cppSTLtype DefaultConstructible
     syntax keyword cppSTLtype MoveConstructible
     syntax keyword cppSTLtype CopyConstructible
