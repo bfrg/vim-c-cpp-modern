@@ -9,7 +9,7 @@
 " Extended syntax highlighting for C++ (including C++11/14/17/20)
 "
 " Compared to Vim's default C++ syntax highlighting, this syntax file adds
-" highlighting functions, containers and types in the standard library.
+" highlighting of functions, containers and types in the standard library.
 " Optionally, library concepts (like CopyConstructible) can be highlighted as
 " standard library types.
 "
@@ -1950,6 +1950,109 @@ if !exists('cpp_no_cpp20')
     " syntax keyword cppSTLfunction strong_order weak_order partial_order
     " syntax keyword cppSTLfunction strong_equal weak_equal
 
+    " concepts {{{2
+    " From: https://en.cppreference.com/w/cpp/concepts
+    syntax keyword cppStatement concept requires
+    syntax keyword cppSTLconcept Same
+    syntax keyword cppSTLconcept DerivedFrom
+    syntax keyword cppSTLconcept ConvertibleTo
+    syntax keyword cppSTLconcept CommonReference
+    syntax keyword cppSTLconcept Common
+    syntax keyword cppSTLconcept Integral
+    syntax keyword cppSTLconcept SignedIntegral
+    syntax keyword cppSTLconcept UnsignedIntegral
+    syntax keyword cppSTLconcept Assignable
+    syntax keyword cppSTLconcept Swappable
+    syntax keyword cppSTLconcept SwappableWith
+    syntax keyword cppSTLconcept Destructible
+    syntax keyword cppSTLconcept Constructible
+    syntax keyword cppSTLconcept DefaultConstructible
+    syntax keyword cppSTLconcept MoveConstructible
+    syntax keyword cppSTLconcept CopyConstructible
+    syntax keyword cppSTLconcept Boolean
+    syntax keyword cppSTLconcept EqualityComparable
+    syntax keyword cppSTLconcept EqualityComparableWith
+    syntax keyword cppSTLconcept StrictTotallyOrdered
+    syntax keyword cppSTLconcept StrictTotallyOrderedWith
+    syntax keyword cppSTLconcept Movable
+    syntax keyword cppSTLconcept Copyable
+    syntax keyword cppSTLconcept Semiregular
+    syntax keyword cppSTLconcept Regular
+    syntax keyword cppSTLconcept Invocable
+    syntax keyword cppSTLconcept RegularInvocable
+    syntax keyword cppSTLconcept Predicate
+    syntax keyword cppSTLconcept Relation
+    syntax keyword cppSTLconcept StrictWeakOrder
+
+    " concepts - named requirements {{{2
+    " Those are concepts that haven't made it into the C++ standard yet
+    " https://en.cppreference.com/w/cpp/named_req
+    " http://en.cppreference.com/w/cpp/language/constraints
+    if exists('g:cpp_named_requirements_highlight') && g:cpp_named_requirements_highlight
+        syntax keyword cppSTLNamedReq MoveAssignable
+        syntax keyword cppSTLNamedReq CopyAssignable
+        syntax keyword cppSTLNamedReq TriviallyCopyable
+        syntax keyword cppSTLNamedReq TrivialType
+        syntax keyword cppSTLNamedReq StandardLayoutType
+        syntax keyword cppSTLNamedReq PODType
+        syntax keyword cppSTLNamedReq LessThanComparable
+        syntax keyword cppSTLNamedReq ValueSwappable
+        syntax keyword cppSTLNamedReq NullablePointer
+        syntax keyword cppSTLNamedReq Hash
+        syntax keyword cppSTLNamedReq Allocator
+        syntax keyword cppSTLNamedReq FunctionObject
+        syntax keyword cppSTLNamedReq Callable
+        syntax keyword cppSTLNamedReq BinaryPredicate
+        syntax keyword cppSTLNamedReq Compare
+        syntax keyword cppSTLNamedReq Container
+        syntax keyword cppSTLNamedReq ReversibleContainer
+        syntax keyword cppSTLNamedReq AllocatorAwareContainer
+        syntax keyword cppSTLNamedReq SequenceContainer
+        syntax keyword cppSTLNamedReq ContiguousContainer
+        syntax keyword cppSTLNamedReq AssociativeContainer
+        syntax keyword cppSTLNamedReq UnorderedAssociativeContainer
+        syntax keyword cppSTLNamedReq DefaultInsertable
+        syntax keyword cppSTLNamedReq CopyInsertable
+        syntax keyword cppSTLNamedReq CopyInsertable
+        syntax keyword cppSTLNamedReq MoveInsertable
+        syntax keyword cppSTLNamedReq EmplaceConstructible
+        syntax keyword cppSTLNamedReq Erasable
+        syntax keyword cppSTLNamedReq Iterator
+        syntax keyword cppSTLNamedReq InputIterator
+        syntax keyword cppSTLNamedReq OutputIterator
+        syntax keyword cppSTLNamedReq ForwardIterator
+        syntax keyword cppSTLNamedReq BidirectionalIterator
+        syntax keyword cppSTLNamedReq RandomAccessIterator
+        syntax keyword cppSTLNamedReq ContiguousIterator
+        syntax keyword cppSTLNamedReq UnformattedInputFunction
+        syntax keyword cppSTLNamedReq FormattedInputFunction
+        syntax keyword cppSTLNamedReq UnformattedOutputFunction
+        syntax keyword cppSTLNamedReq FormattedOutputFunction
+        syntax keyword cppSTLNamedReq SeedSequence
+        syntax keyword cppSTLNamedReq UniformRandomBitGenerator
+        syntax keyword cppSTLNamedReq RandomNumberEngine
+        syntax keyword cppSTLNamedReq RandomNumberEngineAdaptor
+        syntax keyword cppSTLNamedReq RandomNumberDistribution
+        syntax keyword cppSTLNamedReq BasicLockable
+        syntax keyword cppSTLNamedReq Lockable
+        syntax keyword cppSTLNamedReq TimedLockable
+        syntax keyword cppSTLNamedReq Mutex
+        syntax keyword cppSTLNamedReq TimedMutex
+        syntax keyword cppSTLNamedReq SharedMutex
+        syntax keyword cppSTLNamedReq SharedTimedMutex
+        syntax keyword cppSTLNamedReq UnaryTypeTrait
+        syntax keyword cppSTLNamedReq BinaryTypeTrait
+        syntax keyword cppSTLNamedReq TransformationTrait
+        syntax keyword cppSTLNamedReq Clock
+        syntax keyword cppSTLNamedReq TrivialClock
+        syntax keyword cppSTLNamedReq CharTraits
+        syntax keyword cppSTLNamedReq BitmaskType
+        syntax keyword cppSTLNamedReq NumericType
+        syntax keyword cppSTLNamedReq RegexTraits
+        syntax keyword cppSTLNamedReq LiteralType
+        hi def cppSTLNamedReq Typedef
+    endif " C++ named requirements
+
     " contract {{{2
     syntax keyword cppSTLtype contract_violation
 
@@ -1958,84 +2061,6 @@ if !exists('cpp_no_cpp20')
     syntax keyword cppSTLtype syncbuf wsyncbuf osyncstream wosyncstream
     " }}}
 endif
-
-
-" C++ library concepts {{{1
-" For details see:
-" - http://en.cppreference.com/w/cpp/language/constraints
-" - https://en.cppreference.com/w/cpp/named_req
-
-if exists('g:cpp_concepts_highlight') && g:cpp_concepts_highlight
-    syntax keyword cppStatement concept requires
-    syntax keyword cppSTLtype DefaultConstructible
-    syntax keyword cppSTLtype MoveConstructible
-    syntax keyword cppSTLtype CopyConstructible
-    syntax keyword cppSTLtype MoveAssignable
-    syntax keyword cppSTLtype CopyAssignable
-    syntax keyword cppSTLtype Destructible
-    syntax keyword cppSTLtype TriviallyCopyable
-    syntax keyword cppSTLtype TrivialType
-    syntax keyword cppSTLtype StandardLayoutType
-    syntax keyword cppSTLtype PODType
-    syntax keyword cppSTLtype EqualityComparable
-    syntax keyword cppSTLtype LessThanComparable
-    syntax keyword cppSTLtype Swappable
-    syntax keyword cppSTLtype ValueSwappable
-    syntax keyword cppSTLtype NullablePointer
-    syntax keyword cppSTLtype Hash
-    syntax keyword cppSTLtype Allocator
-    syntax keyword cppSTLtype FunctionObject
-    syntax keyword cppSTLtype Callable
-    syntax keyword cppSTLtype Predicate
-    syntax keyword cppSTLtype BinaryPredicate
-    syntax keyword cppSTLtype Compare
-    syntax keyword cppSTLtype Container
-    syntax keyword cppSTLtype ReversibleContainer
-    syntax keyword cppSTLtype AllocatorAwareContainer
-    syntax keyword cppSTLtype SequenceContainer
-    syntax keyword cppSTLtype ContiguousContainer
-    syntax keyword cppSTLtype AssociativeContainer
-    syntax keyword cppSTLtype UnorderedAssociativeContainer
-    syntax keyword cppSTLtype DefaultInsertable
-    syntax keyword cppSTLtype CopyInsertable
-    syntax keyword cppSTLtype CopyInsertable
-    syntax keyword cppSTLtype MoveInsertable
-    syntax keyword cppSTLtype EmplaceConstructible
-    syntax keyword cppSTLtype Erasable
-    syntax keyword cppSTLtype Iterator
-    syntax keyword cppSTLtype InputIterator
-    syntax keyword cppSTLtype OutputIterator
-    syntax keyword cppSTLtype ForwardIterator
-    syntax keyword cppSTLtype BidirectionalIterator
-    syntax keyword cppSTLtype RandomAccessIterator
-    syntax keyword cppSTLtype ContiguousIterator
-    syntax keyword cppSTLtype UnformattedInputFunction
-    syntax keyword cppSTLtype FormattedInputFunction
-    syntax keyword cppSTLtype UnformattedOutputFunction
-    syntax keyword cppSTLtype FormattedOutputFunction
-    syntax keyword cppSTLtype SeedSequence
-    syntax keyword cppSTLtype UniformRandomBitGenerator
-    syntax keyword cppSTLtype RandomNumberEngine
-    syntax keyword cppSTLtype RandomNumberEngineAdaptor
-    syntax keyword cppSTLtype RandomNumberDistribution
-    syntax keyword cppSTLtype BasicLockable
-    syntax keyword cppSTLtype Lockable
-    syntax keyword cppSTLtype TimedLockable
-    syntax keyword cppSTLtype Mutex
-    syntax keyword cppSTLtype TimedMutex
-    syntax keyword cppSTLtype SharedMutex
-    syntax keyword cppSTLtype SharedTimedMutex
-    syntax keyword cppSTLtype UnaryTypeTrait
-    syntax keyword cppSTLtype BinaryTypeTrait
-    syntax keyword cppSTLtype TransformationTrait
-    syntax keyword cppSTLtype Clock
-    syntax keyword cppSTLtype TrivialClock
-    syntax keyword cppSTLtype CharTraits
-    syntax keyword cppSTLtype BitmaskType
-    syntax keyword cppSTLtype NumericType
-    syntax keyword cppSTLtype RegexTraits
-    syntax keyword cppSTLtype LiteralType
-endif " C++ concepts
 
 
 " Boost extensions {{{1
@@ -2047,7 +2072,6 @@ endif
 
 " Default highlighting {{{1
 hi def link cppSTLbool         Boolean
-hi def link cppStorageClass    StorageClass
 hi def link cppStatement       Statement
 hi def link cppSTLfunction     Function
 hi def link cppSTLfunctional   Typedef
@@ -2062,22 +2086,21 @@ hi def link cppSTLios          Function
 hi def link cppSTLcast         Statement
 hi def link cppRawString       String
 hi def link cppRawDelimiter    Delimiter
+hi def link cppSTLconcept      Typedef
 
+" I don't like the way the keywords {inline, virtual, explicit, export,
+" override, final} are highlighted with the default syntax file (by default they
+" are highlighted as Type). Let's link them to a different highlighting group
+hi! link cppModifier StorageClass
 
 " Optional highlighting {{{1
 
 " Highlight all standard C++ keywords as Statement
-" This is very similar to what other IDEs and editors do
+" This is very similar to what IDEs and other editors do
 if exists('g:cpp_simple_highlight') && g:cpp_simple_highlight
     hi! link cppModifier     Statement
     hi! link cppStructure    Statement
     hi! link cppExceptions   Statement
     hi! link cppStorageClass Statement
     hi! link cppSTLexception Typedef
-else
-    " I don't like the way the keywords {inline, virtual, explicit, export,
-    " override, final} are highlighted with the default syntax file (by default
-    " they are highlighted as Type). Let's link them to a different highlighting
-    " group
-    hi! link cppModifier StorageClass
 endif

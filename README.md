@@ -40,13 +40,13 @@ let g:cpp_no_function_highlight = 1
 " (affects both C and C++ files)
 let g:cpp_simple_highlight = 1
 
-" Enable highlighting of C++20 library concepts
-let g:cpp_concepts_highlight = 1
+" Enable highlighting of named requirements (C++20 library concepts)
+let g:cpp_named_requirements_highlight = 1
 ```
 
-The last option will highlight the C++ keywords `concept` and `requires`. All
-C++ [named requirements](https://en.cppreference.com/w/cpp/named_req) like
-`MoveConstructible` will be highlighted as standard library types.
+The last option will highlight all C++
+[named requirements](https://en.cppreference.com/w/cpp/named_req) (concepts
+that haven't made it into the C++ standard yet) as standard library types.
 
 
 ## Installation
