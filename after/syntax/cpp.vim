@@ -2050,7 +2050,7 @@ if !exists('cpp_no_cpp20')
         syntax keyword cppSTLNamedReq NumericType
         syntax keyword cppSTLNamedReq RegexTraits
         syntax keyword cppSTLNamedReq LiteralType
-        hi def cppSTLNamedReq Typedef
+        hi def link cppSTLNamedReq Typedef
     endif " C++ named requirements
 
     " contract {{{2
