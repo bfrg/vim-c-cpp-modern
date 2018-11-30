@@ -49,10 +49,10 @@ syntax keyword cppSTLconstant WEOF
 syntax keyword cppSTLconstant __STDC_UTF_16__
 syntax keyword cppSTLconstant __STDC_UTF_32__
 syntax keyword cppSTLconstant badbit
-syntax keyword cppSTLconstant cerr
-syntax keyword cppSTLconstant cin
-syntax keyword cppSTLconstant clog
-syntax keyword cppSTLconstant cout
+syntax keyword cppSTLVariable cerr
+syntax keyword cppSTLVariable cin
+syntax keyword cppSTLVariable clog
+syntax keyword cppSTLVariable cout
 syntax keyword cppSTLconstant digits
 syntax keyword cppSTLconstant digits10
 syntax keyword cppSTLconstant eofbit
@@ -80,10 +80,10 @@ syntax keyword cppSTLconstant radix
 syntax keyword cppSTLconstant round_style
 syntax keyword cppSTLconstant tinyness_before
 syntax keyword cppSTLconstant traps
-syntax keyword cppSTLconstant wcerr
-syntax keyword cppSTLconstant wcin
-syntax keyword cppSTLconstant wclog
-syntax keyword cppSTLconstant wcout
+syntax keyword cppSTLVariable wcerr
+syntax keyword cppSTLVariable wcin
+syntax keyword cppSTLVariable wclog
+syntax keyword cppSTLVariable wcout
 
 syntax keyword cppSTLexception bad_alloc
 syntax keyword cppSTLexception bad_exception
@@ -2087,6 +2087,7 @@ hi def link cppSTLcast         Statement
 hi def link cppRawString       String
 hi def link cppRawDelimiter    Delimiter
 hi def link cppSTLconcept      Typedef
+hi def link cppSTLVariable     Identifier
 
 " I don't like the way the keywords {inline, virtual, explicit, export,
 " override, final} are highlighted with the default syntax file (by default they
