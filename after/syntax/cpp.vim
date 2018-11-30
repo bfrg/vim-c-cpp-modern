@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Aug 27, 2018
+" Last Change:     Nov 30, 2018
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/20)
 "
@@ -1246,11 +1246,11 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLtype sub_match
     syntax keyword cppSTLtype match_results
     syntax keyword cppSTLtype regex_traits
-    syntax keyword cppSTLtype regex_match regex_search regex_replace
     syntax keyword cppSTLiterator regex_iterator
     syntax keyword cppSTLiterator regex_token_iterator
     syntax keyword cppSTLexception regex_error
     syntax keyword cppSTLtype syntax_option_type match_flag_type error_type
+    " syntax keyword cppSTLfunction regex_match regex_search regex_replace
 
     " string {{{2
     " syntax keyword cppSTLfunction stoi
