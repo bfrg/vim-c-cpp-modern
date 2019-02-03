@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Nov 30, 2018
+" Last Change:     Feb 3, 2019
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/20)
 "
@@ -1941,6 +1941,9 @@ if !exists('cpp_no_cpp20')
     syntax keyword cppSTLtype is_nothrow_convertible
     syntax keyword cppSTLbool is_nothrow_convertible_v
     " syntax keyword cppSTLtype endian
+
+    " atomic {{{2
+    syntax keyword cppSTLtype atomic_ref
 
     " compare {{{2
     syntax keyword cppSTLtype weak_ordering strong_ordering partial_ordering
