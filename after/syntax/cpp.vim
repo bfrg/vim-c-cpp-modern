@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Feb 3, 2019
+" Last Change:     Feb 9, 2019
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/20)
 "
@@ -1071,13 +1071,13 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLcast dynamic_pointer_cast
     syntax keyword cppSTLcast const_pointer_cast
     syntax keyword cppSTLfunction make_shared
+    syntax keyword cppSTLfunction allocate_shared
     " syntax keyword cppSTLfunction declare_reachable
     " syntax keyword cppSTLfunction undeclare_reachable
     " syntax keyword cppSTLfunction declare_no_pointers
     " syntax keyword cppSTLfunction undeclare_no_pointers
     " syntax keyword cppSTLfunction get_pointer_safety
     " syntax keyword cppSTLfunction addressof
-    " syntax keyword cppSTLfunction allocate_shared
     " syntax keyword cppSTLfunction get_deleter
     " syntax keyword cppSTLfunction align
 
@@ -1936,6 +1936,11 @@ endif " C++17
 " C++20 extensions {{{1
 
 if !exists('cpp_no_cpp20')
+    " memory {{{2
+    syntax keyword cppSTLfunction make_unique_default_init make_shared_default_init
+    syntax keyword cppSTLfunction allocate_shared_default_init
+    " syntax keyword cppSTLfunction to_address
+
     " type_traits {{{2
     syntax keyword cppSTLtype remove_cvref remove_cvref_t
     syntax keyword cppSTLtype is_nothrow_convertible
