@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Feb 9, 2019
+" Last Change:     Feb 19, 2019
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/20)
 "
@@ -1060,6 +1060,12 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLtype default_delete
     syntax keyword cppSTLtype allocator_traits
     syntax keyword cppSTLtype allocator_type
+    syntax keyword cppSTLtype void_pointer const_void_pointer
+    syntax keyword cppSTLtype propagate_on_container_copy_assignment
+    syntax keyword cppSTLtype propagate_on_container_move_assignment
+    syntax keyword cppSTLtype propagate_on_container_swap
+    syntax keyword cppSTLtype is_always_equal
+    syntax keyword cppSTLtype rebind_alloc rebind_traits
     syntax keyword cppSTLtype allocator_arg_t
     syntax keyword cppSTLtype uses_allocator
     syntax keyword cppSTLtype scoped_allocator_adaptor
