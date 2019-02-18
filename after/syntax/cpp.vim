@@ -1068,7 +1068,6 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLtype rebind_alloc rebind_traits
     syntax keyword cppSTLtype allocator_arg_t
     syntax keyword cppSTLtype uses_allocator
-    syntax keyword cppSTLtype scoped_allocator_adaptor
     syntax keyword cppSTLtype pointer_safety
     syntax keyword cppSTLtype pointer_traits
     syntax keyword cppSTLconstant allocator_arg
@@ -1257,6 +1256,10 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLexception regex_error
     syntax keyword cppSTLtype syntax_option_type match_flag_type error_type
     " syntax keyword cppSTLfunction regex_match regex_search regex_replace
+
+    " scoped_allocator {{{2
+    syntax keyword cppSTLtype scoped_allocator_adaptor
+    syntax keyword cppSTLtype outer_allocator_type inner_allocator_type
 
     " string {{{2
     " syntax keyword cppSTLfunction stoi
