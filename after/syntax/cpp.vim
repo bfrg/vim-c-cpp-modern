@@ -1729,6 +1729,7 @@ if !exists('cpp_no_cpp17')
 
     " memory {{{2
     syntax keyword cppSTLcast reinterpret_pointer_cast
+    syntax keyword cppSTLconstant uses_allocator_v
     " syntax keyword cppSTLfunction uninitialized_move
     " syntax keyword cppSTLfunction uninitialized_move_n
     " syntax keyword cppSTLfunction uninitialized_default_construct
@@ -1948,6 +1949,9 @@ if !exists('cpp_no_cpp20')
     " memory {{{2
     syntax keyword cppSTLfunction make_unique_default_init make_shared_default_init
     syntax keyword cppSTLfunction allocate_shared_default_init
+    syntax keyword cppSTLfunction uses_allocator_construction_args
+    syntax keyword cppSTLfunction make_obj_using_allocator
+    " syntax keyword cppSTLfunction uninitialized_construct_using_allocator
     " syntax keyword cppSTLfunction to_address
 
     " type_traits {{{2
