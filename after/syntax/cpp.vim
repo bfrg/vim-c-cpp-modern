@@ -1946,6 +1946,8 @@ endif " C++17
 " C++20 extensions {{{1
 
 if !exists('cpp_no_cpp20')
+    syntax keyword cppStorageClass consteval
+
     " memory {{{2
     syntax keyword cppSTLfunction make_unique_default_init make_shared_default_init
     syntax keyword cppSTLfunction allocate_shared_default_init
