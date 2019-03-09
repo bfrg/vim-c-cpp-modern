@@ -1123,7 +1123,7 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLconstant FP_NORMAL
     syntax keyword cppSTLconstant FP_SUBNORMAL
     syntax keyword cppSTLconstant FP_ZERO
-    syntax keyword cppSTLconstant FP_INFINITY
+    syntax keyword cppSTLconstant FP_INFINITE
     syntax keyword cppSTLconstant FP_NAN
     syntax keyword cppSTLconstant FLT_EVAL_METHOD
     " syntax keyword cppSTLfunction imaxabs
