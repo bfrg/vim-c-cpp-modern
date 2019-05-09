@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Feb 19, 2019
+" Last Change:     May 10, 2019
 "
 " Extended syntax highlighting for C++ (including C++11/14/17/20)
 "
@@ -1447,11 +1447,9 @@ if !exists('cpp_no_cpp14')
     syntax keyword cppSTLnamespace literals
     syntax keyword cppSTLnamespace chrono_literals
     " TODO: add literals h, min, s, ms, us, ns
-    " syn keyword cppStorageClass?
 
     " complex {{{2
     " TODO: add literals i, if, il
-    " syn keyword cppStorageClass?
 
     " iomanip {{{2
     " syntax keyword cppSTLfunction quoted
@@ -1947,6 +1945,7 @@ endif " C++17
 
 if !exists('cpp_no_cpp20')
     syntax keyword cppStorageClass consteval
+    syntax keyword cppStatement concept requires
 
     " memory {{{2
     syntax keyword cppSTLfunction make_unique_default_init make_shared_default_init
@@ -1958,6 +1957,8 @@ if !exists('cpp_no_cpp20')
 
     " type_traits {{{2
     syntax keyword cppSTLtype remove_cvref remove_cvref_t
+    syntax keyword cppSTLtype is_bounded_array is_unbounded_array
+    syntax keyword cppSTLbool is_bounded_array_v is_unbounded_array_v
     syntax keyword cppSTLtype is_nothrow_convertible
     syntax keyword cppSTLbool is_nothrow_convertible_v
     " syntax keyword cppSTLtype endian
@@ -1975,7 +1976,6 @@ if !exists('cpp_no_cpp20')
 
     " concepts {{{2
     " From: https://en.cppreference.com/w/cpp/concepts
-    syntax keyword cppStatement concept requires
     syntax keyword cppSTLconcept Same
     syntax keyword cppSTLconcept DerivedFrom
     syntax keyword cppSTLconcept ConvertibleTo
@@ -2047,6 +2047,7 @@ if !exists('cpp_no_cpp20')
         syntax keyword cppSTLNamedReq BidirectionalIterator
         syntax keyword cppSTLNamedReq RandomAccessIterator
         syntax keyword cppSTLNamedReq ContiguousIterator
+        syntax keyword cppSTLNamedReq ConstExprIterator
         syntax keyword cppSTLNamedReq UnformattedInputFunction
         syntax keyword cppSTLNamedReq FormattedInputFunction
         syntax keyword cppSTLNamedReq UnformattedOutputFunction
@@ -2078,6 +2079,20 @@ if !exists('cpp_no_cpp20')
 
     " contract {{{2
     syntax keyword cppSTLtype contract_violation
+
+    " ranges {{{2
+    syntax keyword cppSTLconcept Range SizedRange View InputRange OutputRange ForwardRange
+    syntax keyword cppSTLconcept BidirectionalRange RandomAccessRange ContiguousRange
+    syntax keyword cppSTLconcept CommonRange ViewableRange
+    syntax keyword cppSTLtype iterator_t sentinel_t dangling
+    syntax keyword cppSTLtype safe_iterator_t safe_subrange_t
+    syntax keyword cppSTLtype ref_view filter_view transform_view iota_view join_view empty_view
+    syntax keyword cppSTLtype single_view split_view common_view reverse_view view_interface
+    syntax keyword cppSTLnamespace ranges
+    " syntax keyword cppSTLnamespace view
+
+    " span {{{2
+    syntax keyword cppSTLtype span
 
     " syncstream {{{2
     syntax keyword cppSTLtype basic_syncbuf basic_osyncstream
