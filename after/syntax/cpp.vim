@@ -2130,16 +2130,16 @@ hi def link cppSTLVariable     Identifier
 " I don't like the way the keywords {inline, virtual, explicit, export,
 " override, final} are highlighted with the default syntax file (by default they
 " are highlighted as Type). Let's link them to a different highlighting group
-hi! link cppModifier StorageClass
+hi link cppModifier StorageClass
 
 " Optional highlighting {{{1
 
 " Highlight all standard C++ keywords as Statement
 " This is very similar to what IDEs and other editors do
 if exists('g:cpp_simple_highlight') && g:cpp_simple_highlight
-    hi! link cppModifier     Statement
-    hi! link cppStructure    Statement
-    hi! link cppExceptions   Statement
-    hi! link cppStorageClass Statement
-    hi! link cppSTLexception Typedef
+    hi link cppModifier     Statement
+    hi link cppStructure    Statement
+    hi link cppExceptions   Statement
+    hi link cppStorageClass Statement
+    hi link cppSTLexception Typedef
 endif

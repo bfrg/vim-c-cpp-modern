@@ -4,7 +4,7 @@
 " Original Author: Mikhail Wolfson <mywolfson@gmail.com>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Aug 25, 2018
+" Last Change:     May 10, 2019
 "
 " Extended C syntax highlighting including highlighting for user-defined
 " functions.
@@ -257,9 +257,9 @@ hi def link cIdentifier  Identifier
 " Highlight all standard C keywords as Statement
 " This is very similar to what other IDEs and editors do
 if exists('g:cpp_simple_highlight') && g:cpp_simple_highlight
-    hi! link cStorageClass Statement
-    hi! link cStructure    Statement
-    hi! link cLabel        Statement
+    hi link cStorageClass Statement
+    hi link cStructure    Statement
+    hi link cLabel        Statement
 endif
 
 
@@ -277,7 +277,7 @@ endif
 " syn match cOperator "&&\|||"
 " syn match cOperator "[][]"
 
-" Preprocs
+" Preprocessor
 " syn keyword cDefined defined contained containedin=cDefine
 " hi def link cDefined cDefine
 
