@@ -10,10 +10,9 @@ The syntax file is based on [vim-cpp-enhanced-highlight](https://github.com/octo
 
 ## Difference to vim-cpp-enhanced-highlight
 
-- I added my own C/C++ highlighting for the keywords `virtual`, `override`,
-  `final`, `inline`, `explicit` and `export`. These are now under the
-  highlighting group `StorageClass` (Vim's default syntax file puts them under
-  `Type`).
+- The C++ keywords `virtual`, `override`, `final`, `inline`, `explicit` and
+  `export` are standard C++ statements and *not* types and are therefore
+  put under the highlighting group `Statement`.
 - Almost all C++ standard library functions have been commented out because
   words followed by an opening parenthesis are highlighted as functions anyway.
   So we don't have to explicitly list each library function in here. The only
