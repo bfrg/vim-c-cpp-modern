@@ -1944,7 +1944,7 @@ endif " C++17
 " C++20 extensions {{{1
 
 if !exists('cpp_no_cpp20')
-    syntax keyword cppStorageClass consteval
+    syntax keyword cppStatement consteval
     syntax keyword cppStatement concept requires
 
     " memory {{{2
