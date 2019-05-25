@@ -4,13 +4,13 @@
 " Original Author: Mikhail Wolfson <mywolfson@gmail.com>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     May 10, 2019
+" Last Change:     May 25, 2019
 "
-" Extended C syntax highlighting including highlighting for user-defined
+" Extended C syntax highlighting including highlighting of user-defined
 " functions.
 "
-" This syntax file is based on a previous work by Jon Haggblad:
-"   https://github.com/octol/vim-cpp-enhanced-highlight
+" This syntax file is based on:
+" https://github.com/octol/vim-cpp-enhanced-highlight
 " ==============================================================================
 
 

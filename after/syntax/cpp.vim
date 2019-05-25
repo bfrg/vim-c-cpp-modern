@@ -1,39 +1,13 @@
 " ==============================================================================
 " Vim syntax file
-" Language:        C++ (extended for C++11/14/17/20)
+" Language:        C++ (Standard library including C++11/14/17/20)
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     May 10, 2019
+" Last Change:     May 25, 2019
 "
-" Extended syntax highlighting for C++ (including C++11/14/17/20)
-"
-" Compared to Vim's default C++ syntax highlighting, this syntax file adds
-" highlighting of functions, containers and types in the standard library.
-" Optionally, library concepts (like CopyConstructible) can be highlighted as
-" standard library types.
-"
-" This syntax file is based on the previous work by Jon Haggblad:
-"   https://github.com/octol/vim-cpp-enhanced-highlight
-"
-" Difference to vim-cpp-enhanced-highlight:
-"
-" - Standard library functions have been commented out because words followed by
-"   an opening parenthesis are highlighted as functions anyway, so we don't have
-"   to explicitly list each library function in here. The only exceptions are
-"   standard library function templates, which sometimes must be called with
-"   template parameters, like std::make_unique<Foo>(bar).
-"
-" - Another reason why almost all functions have been commented out is because
-"   if someone had defined his/her own type and the name collides with a library
-"   function name, this user-defined type would have been highlighted as a
-"   function.
-"
-" - User-defined function templates or class members won't be highlighted.
-"   This feature was removed because it was too slow and buggy.
-"
-" - C++ keywords inline, virtual, explicit, export, override and final are moved
-"   to the syntax group StorageClass.
+" This syntax file is based on:
+" https://github.com/octol/vim-cpp-enhanced-highlight
 " ==============================================================================
 
 
