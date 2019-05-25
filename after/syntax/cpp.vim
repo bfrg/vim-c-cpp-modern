@@ -1920,6 +1920,8 @@ endif " C++17
 if !exists('cpp_no_cpp20')
     syntax keyword cppStatement consteval
     syntax keyword cppStatement concept requires
+    syntax keyword cppStatement co_yield co_return
+    syntax keyword cppOperator co_await
 
     " memory {{{2
     syntax keyword cppSTLfunction make_unique_default_init make_shared_default_init
@@ -2053,6 +2055,11 @@ if !exists('cpp_no_cpp20')
 
     " contract {{{2
     syntax keyword cppSTLtype contract_violation
+
+    " coroutines {{{2
+    syntax keyword cppSTLtype coroutine_traits coroutine_handle
+    syntax keyword cppSTLtype noop_coroutine_handle noop_coroutine_promise
+    syntax keyword cppSTLtype suspend_never suspend_always
 
     " ranges {{{2
     syntax keyword cppSTLconcept Range SizedRange View InputRange OutputRange ForwardRange
