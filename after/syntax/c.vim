@@ -20,7 +20,7 @@ syn keyword cTodo contained BUG NOTE
 
 
 " Highlight function names
-if get(g:, 'cpp_no_function_highlight', 0)
+if get(g:, 'cpp_no_function_highlight', 1)
     syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
     hi def link cUserFunction Function
 endif
