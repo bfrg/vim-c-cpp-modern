@@ -8,10 +8,10 @@
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
+" http://www.vim.org/scripts/script.php?script_id=4293
 " ==============================================================================
 
 " Standard library {{{1
-" From: http://www.vim.org/scripts/script.php?script_id=4293
 syntax keyword cppSTLconstant
         \ MB_CUR_MAX MB_LEN_MAX WCHAR_MAX WCHAR_MIN WEOF __STDC_UTF_16__ __STDC_UTF_32__
 

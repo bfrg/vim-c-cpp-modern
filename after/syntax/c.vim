@@ -2,6 +2,7 @@
 " Vim syntax file
 " Language:        C Additions
 " Original Author: Mikhail Wolfson <mywolfson@gmail.com>
+"                  http://www.vim.org/scripts/script.php?script_id=3064
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
 " Last Change:     Aug 26, 2019
@@ -49,7 +50,6 @@ endif
 
 
 " Operators
-" From: http://www.vim.org/scripts/script.php?script_id=3064
 " syn match cOperator "\(<<\|>>\|[-+*/%&^|<>!=]\)="
 " syn match cOperator "<<\|>>\|&&\|||\|++\|--\|->"
 " syn match cOperator "[.!~*&%<>^|=,+-]"
