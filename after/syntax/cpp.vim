@@ -355,7 +355,7 @@ if !exists('cpp_no_cpp20')
             \ Assignable Boolean Common CommonReference Constructible ConvertibleTo CopyConstructible Copyable DefaultConstructible DerivedFrom Destructible EqualityComparable EqualityComparableWith Integral Invocable Movable MoveConstructible Predicate Regular RegularInvocable Relation Same Semiregular SignedIntegral StrictTotallyOrdered StrictTotallyOrderedWith StrictWeakOrder Swappable SwappableWith UnsignedIntegral
 
     " concepts - named requirements
-    " Those are concepts that haven't made it into the C++ standard yet
+    " These are concepts that haven't made it into the C++ Standard yet
     " https://en.cppreference.com/w/cpp/named_req
     " http://en.cppreference.com/w/cpp/language/constraints
     if get(g:, 'cpp_named_requirements_highlight', 0)
@@ -421,7 +421,6 @@ hi def link cppSTLiterator_tag Typedef
 hi def link cppSTLenum         Typedef
 hi def link cppSTLios          Function
 hi def link cppSTLcast         Statement
-hi def link cppRawString       String
 hi def link cppRawDelimiter    Delimiter
 hi def link cppSTLconcept      Typedef
 hi def link cppSTLVariable     Identifier
