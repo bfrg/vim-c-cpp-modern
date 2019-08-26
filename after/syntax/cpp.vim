@@ -67,6 +67,7 @@ syntax keyword cppSTLfunction get
 
 " C++11 extensions {{{1
 if !exists('cpp_no_cpp11')
+    syntax keyword cppType char16_t char32_t
     syntax keyword cppSTLconstant nullptr
 
     " std containers
@@ -339,6 +340,7 @@ endif
 
 " C++20 extensions {{{1
 if !exists('cpp_no_cpp20')
+    syntax keyword cppType char8_t
     syntax keyword cppOperator co_await
     syntax keyword cppStatement consteval concept requires co_yield co_return
 
