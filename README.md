@@ -1,32 +1,29 @@
 # vim-cpp-modern: Enhanced C and C++ syntax highlighting
 
-This plugin provides additional syntax highlighting for C and C++11/14/17/20
-development in Vim. It provides highlighting of functions, as well as all types,
-helper types and helper template variables in the C++ standard library. It also
-adds syntax highlighting of C++20 library concepts.
+Keyword and regex-based syntax highlighting for C and C++11/14/17/20 in Vim.
 
-The syntax file is based on [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight).
+The syntax files provide highlighting of:
+- Common ANSI C keywords
+- C++ Standard Library namespaces, types, helper types, helper template
+  variables, constants
+- Latest C++20 language features like Coroutines or Concepts
+- Function declarations/definitions and function calls (basically all words
+  followed by an opening parenthesis)
+- Optionally a simpler (less colorful) highlighting of standard C and C++
+  keywords
 
 
 ## Difference to vim-cpp-enhanced-highlight
 
+Both syntax files are based on [vim-cpp-enhanced-highlight][1] with a few
+modifications:
+
 - The C++ keywords `virtual`, `override`, `final`, `inline`, `explicit` and
-  `export` are standard C++ statements and *not* types and are therefore
-  put under the highlighting group `Statement`.
-- Almost all C++ standard library functions have been commented out because
-  words followed by an opening parenthesis are highlighted as functions anyway.
-  So we don't have to explicitly list each library function in here. The only
-  exceptions are function templates, which sometimes must be called with
-  template parameters, like `std::make_unique<Foo>(bar)`.
-- Another reason why almost all library functions have been commented out is
-  because if someone had defined his/her own type and the name collided with a
-  library's function name, the type would have been highlighted as a function.
-  This can happen quite often when too many keywords are added to the syntax
-  file. I have noticed this when implementing metafunctions like `apply` or
-  `find_if`.
-- User-defined function templates or class members won't be highlighted. Both
-  features were removed because they made scrolling very slow and never worked
-  100%.
+  `export` are standard C++ statements and **not** types and are therefore put
+  under the highlighting group `Statement`.
+- Highlighting of library functions is purely regex-based.
+- User-defined function templates or class members are not highlighted. Their
+  regex'es are too complicated and slow, and fail too often.
 
 
 ## Optional features
@@ -35,7 +32,7 @@ The syntax file is based on [vim-cpp-enhanced-highlight](https://github.com/octo
 " Disable function highlighting (affects both C and C++ files)
 let g:cpp_no_function_highlight = 1
 
-" Put all standard C and C++ keywords under Vim's highlight group `Statement`
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
 " (affects both C and C++ files)
 let g:cpp_simple_highlight = 1
 
@@ -43,9 +40,8 @@ let g:cpp_simple_highlight = 1
 let g:cpp_named_requirements_highlight = 1
 ```
 
-The last option will highlight all C++
-[named requirements](https://en.cppreference.com/w/cpp/named_req) (concepts
-that haven't made it into the C++ standard yet) as standard library types.
+The last option will highlight all C++ [named requirements][2] (concepts that
+haven't made it into the C++ standard yet) as standard library types.
 
 
 ## Installation
@@ -70,17 +66,10 @@ let c_no_curly_error = 1
 See also `:help ft-c-syntax` for further options.
 
 
-## Resources
-
-- https://github.com/octol/vim-cpp-enhanced-highlight
-- http://stackoverflow.com/q/736701
-- http://www.vim.org/scripts/script.php?script_id=4293
-- http://www.vim.org/scripts/script.php?script_id=2224
-- http://www.vim.org/scripts/script.php?script_id=1640
-- http://www.vim.org/scripts/script.php?script_id=3064
-- https://github.com/vim-jp/vim-cpp/issues/16
-
-
 ## License
 
 Distributed under the same terms as Vim itself. See `:help license`.
+
+
+[1]: https://github.com/octol/vim-cpp-enhanced-highlight
+[2]: https://en.cppreference.com/w/cpp/named_req
