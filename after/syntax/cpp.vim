@@ -421,7 +421,6 @@ hi def link cppSTLiterator_tag Typedef
 hi def link cppSTLenum         Typedef
 hi def link cppSTLios          Function
 hi def link cppSTLcast         Statement
-hi def link cppRawDelimiter    Delimiter
 hi def link cppSTLconcept      Typedef
 hi def link cppSTLVariable     Identifier
 
