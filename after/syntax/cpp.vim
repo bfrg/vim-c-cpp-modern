@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Aug 26, 2019
+" Last Change:     Dec 15, 2019
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -131,7 +131,7 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLconstant allocator_arg
     syntax keyword cppSTLexception bad_weak_ptr
     syntax keyword cppSTLfunction allocate_shared make_shared
-    syntax keyword cppSTLcast
+    syntax keyword cppSTLfunction
             \ const_pointer_cast dynamic_pointer_cast static_pointer_cast
 
     syntax keyword cppSTLtype
@@ -277,7 +277,7 @@ if !exists('cpp_no_cpp17')
             \ default_order default_order_t default_searcher boyer_moore_searcher boyer_moore_horspool_searcher
 
     " memory
-    syntax keyword cppSTLcast reinterpret_pointer_cast
+    syntax keyword cppSTLfunction reinterpret_pointer_cast
     syntax keyword cppSTLconstant uses_allocator_v
 
     " memory_resource
