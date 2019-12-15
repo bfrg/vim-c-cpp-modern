@@ -97,6 +97,7 @@ if !exists('cpp_no_cpp11')
     " functional
     syntax keyword cppSTLexception bad_function_call
     syntax keyword cppSTLfunctional function
+    syntax keyword cppSTLfunction mem_fn
     syntax keyword cppSTLconstant _1 _2 _3 _4 _5 _6 _7 _8 _9
     syntax keyword cppSTLtype
             \ hash is_bind_expression is_placeholder reference_wrapper
