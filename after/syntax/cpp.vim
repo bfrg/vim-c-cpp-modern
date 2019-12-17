@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Dec 15, 2019
+" Last Change:     Dec 17, 2019
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -339,7 +339,7 @@ endif
 if !exists('cpp_no_cpp20')
     syntax keyword cppType char8_t
     syntax keyword cppOperator co_await
-    syntax keyword cppStatement consteval concept requires co_yield co_return
+    syntax keyword cppStatement consteval constinit concept requires co_yield co_return
 
     " atomic
     syntax keyword cppSTLtype atomic_ref
