@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Dec 17, 2019
+" Last Change:     Jan 9, 2020
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -394,6 +394,8 @@ if !exists('cpp_no_cpp20')
 
     " span
     syntax keyword cppSTLtype span
+    syntax keyword cppSTLconstant dynamic_extent
+    syntax keyword cppSTLfunction subspan
 
     " syncstream
     syntax keyword cppSTLtype
