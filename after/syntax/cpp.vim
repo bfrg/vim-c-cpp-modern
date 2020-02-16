@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Jan 9, 2020
+" Last Change:     Feb 16, 2020
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -378,10 +378,12 @@ if !exists('cpp_no_cpp20')
 
     " type_traits
     syntax keyword cppSTLtype
-            \ remove_cvref remove_cvref_t is_bounded_array is_unbounded_array is_nothrow_convertible
+            \ remove_cvref remove_cvref_t is_bounded_array is_layout_compatible is_unbounded_array is_nothrow_convertible has_strong_structural_equality is_pointer_interconvertible_base_of
 
     syntax keyword cppSTLbool
-            \ is_bounded_array_v is_unbounded_array_v is_nothrow_convertible_v
+            \ is_bounded_array_v is_layout_compatible_v is_unbounded_array_v is_nothrow_convertible_v has_strong_structural_equality_v is_pointer_interconvertible_base_of_v
+
+    syntax keyword cppSTLfunction is_corresponding_member
 
     " ranges
     syntax keyword cppSTLnamespace ranges views
