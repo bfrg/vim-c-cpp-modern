@@ -353,7 +353,7 @@ if !exists('cpp_no_cpp20')
 
     " concepts
     syntax keyword cppSTLconcept
-            \ Assignable Boolean Common CommonReference Constructible ConvertibleTo CopyConstructible Copyable DefaultConstructible DerivedFrom Destructible EqualityComparable EqualityComparableWith Integral Invocable Movable MoveConstructible Predicate Regular RegularInvocable Relation Same Semiregular SignedIntegral StrictTotallyOrdered StrictTotallyOrderedWith StrictWeakOrder Swappable SwappableWith UnsignedIntegral
+            \ assignable_from boolean common_reference_with common_with constructible_from convertible_to copy_constructible copyable default_constructible derived_from destructible equality_comparable equality_comparable_with equivalence_relation floating_point integral invocable movable move_constructible predicate regular regular_invocable relation same_as semiregular signed_integral strict_weak_order swappable swappable_with totally_ordered totally_ordered_with unsigned_integral
 
     " concepts - named requirements
     " These are concepts that haven't made it into the C++ Standard yet
