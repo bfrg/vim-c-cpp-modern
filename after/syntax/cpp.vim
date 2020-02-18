@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Feb 16, 2020
+" Last Change:     Feb 18, 2020
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -389,7 +389,7 @@ if !exists('cpp_no_cpp20')
     syntax keyword cppSTLnamespace ranges views
 
     syntax keyword cppSTLconcept
-            \ Range SizedRange View InputRange OutputRange ForwardRange BidirectionalRange RandomAccessRange ContiguousRange CommonRange ViewableRange
+            \ range sized_range view input_range output_range forward_range bidirectional_range random_access_range contiguous_range common_range viewable_range
 
     syntax keyword cppSTLtype
             \ iterator_t sentinel_t dangling safe_iterator_t safe_subrange_t ref_view filter_view transform_view iota_view join_view empty_view single_view split_view common_view reverse_view view_interface
