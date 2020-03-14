@@ -5,7 +5,7 @@
 "                  http://www.vim.org/scripts/script.php?script_id=3064
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Aug 26, 2019
+" Last Change:     Mar 14, 2020
 "
 " Extended C syntax highlighting including highlighting of user-defined
 " functions.
@@ -20,7 +20,7 @@ syn keyword cTodo contained BUG NOTE
 
 
 " Highlight function names
-if get(g:, 'cpp_no_function_highlight', 1)
+if !get(g:, 'cpp_no_function_highlight', 0)
     syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
     hi def link cUserFunction Function
 endif
