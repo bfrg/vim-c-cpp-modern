@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Feb 18, 2020
+" Last Change:     May 9, 2020
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -353,7 +353,7 @@ if !exists('cpp_no_cpp20')
 
     " concepts
     syntax keyword cppSTLconcept
-            \ assignable_from boolean common_reference_with common_with constructible_from convertible_to copy_constructible copyable default_constructible derived_from destructible equality_comparable equality_comparable_with equivalence_relation floating_point integral invocable movable move_constructible predicate regular regular_invocable relation same_as semiregular signed_integral strict_weak_order swappable swappable_with totally_ordered totally_ordered_with unsigned_integral
+            \ assignable_from boolean common_reference_with common_with constructible_from convertible_to copy_constructible copyable default_constructible derived_from destructible equality_comparable equality_comparable_with equivalence_relation floating_point integral invocable movable move_constructible predicate regular regular_invocable relation same_as semiregular signed_integral strict_weak_order swappable swappable_with totally_ordered totally_ordered_with unsigned_integral default_initializable
 
     " concepts - named requirements
     " These are concepts that haven't made it into the C++ Standard yet
@@ -378,7 +378,7 @@ if !exists('cpp_no_cpp20')
 
     " type_traits
     syntax keyword cppSTLtype
-            \ remove_cvref remove_cvref_t is_bounded_array is_layout_compatible is_unbounded_array is_nothrow_convertible has_strong_structural_equality is_pointer_interconvertible_base_of
+            \ remove_cvref remove_cvref_t is_bounded_array is_layout_compatible is_unbounded_array is_nothrow_convertible has_strong_structural_equality is_pointer_interconvertible_base_of unwrap_reference unwrap_reference_t unwrap_ref_decay unwrap_ref_decay_t basic_common_reference common_reference common_reference_t
 
     syntax keyword cppSTLbool
             \ is_bounded_array_v is_layout_compatible_v is_unbounded_array_v is_nothrow_convertible_v has_strong_structural_equality_v is_pointer_interconvertible_base_of_v
