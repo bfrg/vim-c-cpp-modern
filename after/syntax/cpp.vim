@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     May 9, 2020
+" Last Change:     Jun 23, 2020
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -260,7 +260,10 @@ if !exists('cpp_no_cpp17')
             \ directory_entry directory_iterator file_status file_time_type path recursive_directory_iterator space_info
 
     syntax keyword cppSTLenum
-            \ copy_options directory_options file_type format perm_options perms
+            \ copy_options directory_options file_type perm_options perms
+
+    " Note: There is std::filesystem::path::format and std::format() in <format>
+    syntax match cppSTLenum "\<format\>(\@!"
 
     syntax keyword cppSTLconstant
             \ copy_symlinks auto_format create_hard_links create_symlinks directories_only follow_directory_symlink generic_format group_all group_exec group_read group_write native_format others_all others_exec others_read others_write overwrite_existing owner_all owner_exec owner_read owner_write preferred_separator recursive set_gid set_uid skip_existing skip_permission_denied skip_symlinks sticky_bit update_existing
