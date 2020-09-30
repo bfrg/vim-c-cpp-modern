@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <https://github.com/bfrg>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Sep 30, 2020
+" Last Change:     Oct 1, 2020
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -131,18 +131,19 @@ endif
 if !exists('cpp_no_cpp20')
     syntax keyword cppSTLnamespace ranges views
     syntax keyword cppSTLconstant dynamic_extent
+    syntax keyword cppSTLvariable default_sentinel unreachable_sentinel
 
     syntax keyword cppSTLtype
-            \ atomic_ref endian weak_ordering strong_ordering partial_ordering weak_equality strong_equality common_comparison_category common_comparison_category_t contract_violation coroutine_traits coroutine_handle noop_coroutine_handle noop_coroutine_promise suspend_never suspend_always remove_cvref remove_cvref_t is_bounded_array is_layout_compatible is_unbounded_array is_nothrow_convertible has_strong_structural_equality is_pointer_interconvertible_base_of unwrap_reference unwrap_reference_t unwrap_ref_decay unwrap_ref_decay_t basic_common_reference common_reference common_reference_t iterator_t sentinel_t dangling safe_iterator_t safe_subrange_t ref_view filter_view transform_view iota_view join_view empty_view single_view split_view common_view reverse_view view_interface span basic_syncbuf basic_osyncstream syncbuf wsyncbuf osyncstream wosyncstream jthread latch barrier stop_token stop_source stop_callback counting_semaphore binary_semaphore
+            \ atomic_ref endian weak_ordering strong_ordering partial_ordering weak_equality strong_equality common_comparison_category common_comparison_category_t contract_violation coroutine_traits coroutine_handle noop_coroutine_handle noop_coroutine_promise suspend_never suspend_always remove_cvref remove_cvref_t is_bounded_array is_layout_compatible is_unbounded_array is_nothrow_convertible has_strong_structural_equality is_pointer_interconvertible_base_of unwrap_reference unwrap_reference_t unwrap_ref_decay unwrap_ref_decay_t basic_common_reference common_reference common_reference_t iterator_t sentinel_t dangling safe_iterator_t safe_subrange_t ref_view filter_view transform_view iota_view join_view empty_view single_view split_view common_view reverse_view view_interface span basic_syncbuf basic_osyncstream syncbuf wsyncbuf osyncstream wosyncstream jthread latch barrier stop_token stop_source stop_callback counting_semaphore binary_semaphore source_location compare_three_way_result compare_three_way_result_t contiguous_iterator_tag incrementable_traits iter_value_t iter_reference_t iter_difference_t iter_rvalue_reference_t iter_common_reference_t indirectly_readable_traits move_sentinel default_sentinel_t unreachable_sentinel_t common_iterator counted_iterator indirect_result_t projected type_identity type_identity_t
 
     syntax keyword cppSTLfunction
-            \ make_unique_default_init make_shared_default_init allocate_shared_default_init uses_allocator_construction_args make_obj_using_allocator is_corresponding_member subspan in_range
+            \ make_unique_default_init make_shared_default_init allocate_shared_default_init uses_allocator_construction_args make_obj_using_allocator is_corresponding_member subspan in_range is_pointer_interconvertible_with_class
 
     syntax keyword cppSTLbool
-            \ is_bounded_array_v is_layout_compatible_v is_unbounded_array_v is_nothrow_convertible_v has_strong_structural_equality_v is_pointer_interconvertible_base_of_v
+            \ is_bounded_array_v is_layout_compatible_v is_unbounded_array_v is_nothrow_convertible_v has_strong_structural_equality_v is_pointer_interconvertible_base_of_v disable_sized_sentinel_for disable_sized_range enable_borrowed_range enable_view
 
     syntax keyword cppSTLconcept
-            \ assignable_from boolean common_reference_with common_with constructible_from convertible_to copy_constructible copyable default_constructible derived_from destructible equality_comparable equality_comparable_with equivalence_relation floating_point integral invocable movable move_constructible predicate regular regular_invocable relation same_as semiregular signed_integral strict_weak_order swappable swappable_with totally_ordered totally_ordered_with unsigned_integral default_initializable range sized_range view input_range output_range forward_range bidirectional_range random_access_range contiguous_range common_range viewable_range three_way_comparable three_way_comparable_with
+            \ assignable_from boolean common_reference_with common_with constructible_from convertible_to copy_constructible copyable default_constructible derived_from destructible equality_comparable equality_comparable_with equivalence_relation floating_point integral invocable movable move_constructible predicate regular regular_invocable relation same_as semiregular signed_integral strict_weak_order swappable swappable_with totally_ordered totally_ordered_with unsigned_integral default_initializable range sized_range view input_range output_range forward_range bidirectional_range random_access_range contiguous_range common_range viewable_range three_way_comparable three_way_comparable_with indirectly_readable indirectly_writable weakly_incrementable incrementable input_or_output_iterator sentinel_for sized_sentinel_for input_iterator output_iterator forward_iterator bidirectional_iterator random_access_iterator contiguous_iterator indirectly_unary_invocable indirectly_regular_unary_invocable indirect_unary_predicate indirect_binary_predicate indirect_equivalence_relation indirect_strict_weak_order indirectly_movable indirectly_movable_storable indirectly_copyable indirectly_copyable_storable indirectly_swappable indirectly_comparable permutable mergeable sortable
 endif
 
 
