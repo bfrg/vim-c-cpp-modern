@@ -143,15 +143,6 @@ if !exists('cpp_no_cpp20')
 
     syntax keyword cppSTLconcept
             \ assignable_from boolean common_reference_with common_with constructible_from convertible_to copy_constructible copyable default_constructible derived_from destructible equality_comparable equality_comparable_with equivalence_relation floating_point integral invocable movable move_constructible predicate regular regular_invocable relation same_as semiregular signed_integral strict_weak_order swappable swappable_with totally_ordered totally_ordered_with unsigned_integral default_initializable range sized_range view input_range output_range forward_range bidirectional_range random_access_range contiguous_range common_range viewable_range three_way_comparable three_way_comparable_with
-
-    " Concepts - named requirements
-    " https://en.cppreference.com/w/cpp/named_req
-    " http://en.cppreference.com/w/cpp/language/constraints
-    if get(g:, 'cpp_named_requirements_highlight', 0)
-        syntax keyword cppSTLNamedReq
-                \ Allocator AllocatorAwareContainer AssociativeContainer BasicLockable BidirectionalIterator BinaryPredicate BinaryTypeTrait BitmaskType Callable CharTraits Clock Compare ConstExprIterator Container ContiguousContainer ContiguousIterator CopyAssignable CopyInsertable CopyInsertable DefaultInsertable EmplaceConstructible Erasable FormattedInputFunction FormattedOutputFunction ForwardIterator FunctionObject Hash InputIterator Iterator LessThanComparable LiteralType Lockable MoveAssignable MoveInsertable Mutex NullablePointer NumericType OutputIterator PODType RandomAccessIterator RandomNumberDistribution RandomNumberEngine RandomNumberEngineAdaptor RegexTraits ReversibleContainer SeedSequence SequenceContainer SharedMutex SharedTimedMutex StandardLayoutType TimedLockable TimedMutex TransformationTrait TrivialClock TrivialType TriviallyCopyable UnaryTypeTrait UnformattedInputFunction UnformattedOutputFunction UniformRandomBitGenerator UnorderedAssociativeContainer ValueSwappable
-        hi def link cppSTLNamedReq Typedef
-    endif
 endif
 
 
