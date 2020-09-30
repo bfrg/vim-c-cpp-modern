@@ -129,8 +129,6 @@ endif
 
 " C++20 extensions {{{1
 if !exists('cpp_no_cpp20')
-    syntax keyword cppOperator co_await
-    syntax keyword cppStatement consteval constinit concept requires co_yield co_return
     syntax keyword cppSTLnamespace ranges views
     syntax keyword cppSTLconstant dynamic_extent
 
