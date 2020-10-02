@@ -83,8 +83,8 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLiterator
             \ move_iterator regex_iterator regex_token_iterator const_local_iterator local_iterator
 
-    " Note: ignore is also a function (could also be put under cppSTLvariable)
-    syntax match cppSTLconstant "\<ignore\>(\@!"
+    " Note: ignore is also a function
+    syntax match cppSTLvariable "\<ignore\>(\@!"
 endif
 
 
