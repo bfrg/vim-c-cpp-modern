@@ -65,7 +65,10 @@ if !exists('cpp_no_cpp11')
             \ atomic_char16_t atomic_char32_t atomic_int_fast16_t atomic_int_fast32_t atomic_int_fast64_t atomic_int_fast8_t atomic_int_least16_t atomic_int_least32_t atomic_int_least64_t atomic_int_least8_t atomic_intmax_t atomic_intptr_t atomic_ptrdiff_t atomic_size_t atomic_uint_fast16_t atomic_uint_fast32_t atomic_uint_fast64_t atomic_uint_fast8_t atomic_uint_least16_t atomic_uint_least32_t atomic_uint_least64_t atomic_uint_least8_t atomic_uintmax_t atomic_uintptr_t atomic_wchar_t nullptr_t max_align_t allocator_arg_t adopt_lock_t defer_lock_t try_to_lock_t piecewise_construct_t
 
     syntax keyword cppSTLconstant
-            \ _1 _2 _3 _4 _5 _6 _7 _8 _9 max_digits10 allocator_arg defer_lock try_to_lock adopt_lock math_errhandling
+            \ max_digits10 math_errhandling
+
+    syntax keyword cppSTLvariable
+            \ _1 _2 _3 _4 _5 _6 _7 _8 _9 defer_lock try_to_lock adopt_lock allocator_arg
 
     syntax keyword cppSTLconstant
             \ FLT_EVAL_METHOD FP_INFINITE FP_NAN FP_NORMAL FP_SUBNORMAL FP_ZERO HUGE_VALF HUGE_VALL INFINITY MATH_ERREXCEPT MATH_ERRNO NAN
