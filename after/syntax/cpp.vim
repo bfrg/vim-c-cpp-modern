@@ -19,10 +19,10 @@ syntax keyword cppSTLnamespace
         \ std experimental rel_ops
 
 syntax keyword cppSTLconstant
-        \ badbit digits digits10 eofbit failbit goodbit has_denorm has_denorm_loss has_infinity has_quiet_NaN has_signaling_NaN is_bounded is_exact is_iec559 is_integer is_modulo is_signed is_specialized max_exponent max_exponent10 min_exponent min_exponent10 nothrow npos radix round_style tinyness_before traps
+        \ badbit digits digits10 eofbit failbit goodbit has_denorm has_denorm_loss has_infinity has_quiet_NaN has_signaling_NaN is_bounded is_exact is_iec559 is_integer is_modulo is_signed is_specialized max_exponent max_exponent10 min_exponent min_exponent10 npos radix round_style tinyness_before traps
 
 syntax keyword cppSTLvariable
-        \ cerr cin clog cout wcerr wcin wclog wcout
+        \ cerr cin clog cout wcerr wcin wclog wcout nothrow
 
 syntax keyword cppSTLexception
         \ bad_alloc bad_exception bad_typeid bad_cast domain_error exception failure invalid_argument length_error logic_error out_of_range overflow_error range_error runtime_error underflow_error
