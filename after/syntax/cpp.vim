@@ -132,12 +132,12 @@ if !exists('cpp_no_cpp17')
     " Note: There is std::filesystem::path::format and std::format() in <format>
     syntax match cppSTLenum "\<format\>(\@!"
 
+    " Note: these can be both member objects and methods
+    syntax match cppSTLvariable "\<\%(capacity\|free\|available\)\>(\@!"
+
     " Note: these keywords are very likely to coincide with user-defined variables
     " syntax keyword cppSTLconstant
     "         \ all mask unknown replace add remove nofollow none not_found regular directory symlink block character fifo socket unknown
-
-    " Note: these are also functions
-    " syntax keyword cppSTLconstant capacity free available
 endif
 
 
