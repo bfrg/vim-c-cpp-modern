@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <https://github.com/bfrg>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Oct 3, 2020
+" Last Change:     Oct 4, 2020
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -12,7 +12,7 @@
 " ==============================================================================
 
 " Standard library {{{1
-syntax keyword cppSTLconstant
+syntax keyword cppSTLdefine
         \ MB_CUR_MAX MB_LEN_MAX WCHAR_MAX WCHAR_MIN WEOF __STDC_UTF_16__ __STDC_UTF_32__
 
 syntax keyword cppSTLnamespace
@@ -64,14 +64,13 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLtypedef
             \ atomic_char16_t atomic_char32_t atomic_int_fast16_t atomic_int_fast32_t atomic_int_fast64_t atomic_int_fast8_t atomic_int_least16_t atomic_int_least32_t atomic_int_least64_t atomic_int_least8_t atomic_intmax_t atomic_intptr_t atomic_ptrdiff_t atomic_size_t atomic_uint_fast16_t atomic_uint_fast32_t atomic_uint_fast64_t atomic_uint_fast8_t atomic_uint_least16_t atomic_uint_least32_t atomic_uint_least64_t atomic_uint_least8_t atomic_uintmax_t atomic_uintptr_t atomic_wchar_t nullptr_t max_align_t allocator_arg_t adopt_lock_t defer_lock_t try_to_lock_t piecewise_construct_t
 
-    syntax keyword cppSTLconstant
-            \ max_digits10 math_errhandling
+    syntax keyword cppSTLconstant max_digits10
 
     syntax keyword cppSTLvariable
             \ _1 _2 _3 _4 _5 _6 _7 _8 _9 defer_lock try_to_lock adopt_lock allocator_arg
 
-    syntax keyword cppSTLconstant
-            \ FLT_EVAL_METHOD FP_INFINITE FP_NAN FP_NORMAL FP_SUBNORMAL FP_ZERO HUGE_VALF HUGE_VALL INFINITY MATH_ERREXCEPT MATH_ERRNO NAN
+    syntax keyword cppSTLdefine
+            \ math_errhandling FLT_EVAL_METHOD FP_INFINITE FP_NAN FP_NORMAL FP_SUBNORMAL FP_ZERO HUGE_VALF HUGE_VALL INFINITY MATH_ERREXCEPT MATH_ERRNO NAN
 
     syntax keyword cppSTLenum
             \ memory_order future_status future_errc launch io_errc cv_status errc
@@ -177,6 +176,7 @@ endif
 hi def link cppSTLbool         Boolean
 hi def link cppStatement       Statement
 hi def link cppSTLfunction     Function
+hi def link cppSTLdefine       Constant
 hi def link cppSTLconstant     Constant
 hi def link cppSTLnamespace    Constant
 hi def link cppSTLexception    Type
