@@ -6,7 +6,8 @@ The syntax files provide highlighting of:
 - Common ANSI C keywords
 - C++ Standard Library namespaces, types, helper types, helper template
   variables, constants
-- Latest C++20 language features like Coroutines or Concepts
+- C++ attributes
+- Latest C++20 language features like coroutines and concepts
 - Function declarations/definitions and function calls (basically all words
   followed by an opening parenthesis)
 - Optionally a simpler (less colorful) highlighting of standard C and C++
@@ -31,6 +32,9 @@ modifications:
 ```vim
 " Disable function highlighting (affects both C and C++ files)
 let g:cpp_no_function_highlight = 1
+
+" Enable highlighting of C++ attributes
+let g:cpp_attributes_highlight = 1
 
 " Put all standard C and C++ keywords under Vim's highlight group 'Statement'
 " (affects both C and C++ files)
