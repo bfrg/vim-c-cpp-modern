@@ -5,7 +5,7 @@
 "                  http://www.vim.org/scripts/script.php?script_id=3064
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Oct 4, 2020
+" Last Change:     Oct 17, 2020
 "
 " Extended C syntax highlighting including highlighting of user-defined
 " functions.
@@ -25,7 +25,8 @@ if !get(g:, 'cpp_no_function_highlight', 0)
     hi def link cUserFunction Function
 endif
 
-" Highlight member variables and functions.
+
+" Highlight struct/class member variables
 if get(g:, 'cpp_member_highlight', 0)
     syn match cMemberAccess "\.\|->" nextgroup=cStructMember,cppTemplateKeyword
     syn match cStructMember "\<\h\w*\>\%((\|<\)\@!" contained
@@ -38,6 +39,7 @@ if get(g:, 'cpp_member_highlight', 0)
         hi def link cppTemplateKeyword cppStructure
     endif
 endif
+
 
 " Common ANSI-standard Names
 syn keyword cAnsiName

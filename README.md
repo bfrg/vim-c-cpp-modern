@@ -6,8 +6,9 @@ The syntax files provide highlighting of:
 - Common ANSI C keywords
 - C++ Standard Library namespaces, types, helper types, helper template
   variables, constants
-- C++ attributes
-- Latest C++20 language features like coroutines and concepts
+- C++ [attributes][attributes]
+- Latest C++20 language features like [coroutines][coroutines] and
+  [concepts][concepts]
 - Function declarations/definitions and function calls (basically all words
   followed by an opening parenthesis)
 - Optionally a simpler (less colorful) highlighting of standard C and C++
@@ -16,15 +17,16 @@ The syntax files provide highlighting of:
 
 ## Difference to vim-cpp-enhanced-highlight
 
-Both syntax files are based on [vim-cpp-enhanced-highlight][1] with a few
-modifications:
+Both syntax files are based on [vim-cpp-enhanced-highlight][octol] with the
+following modifications:
 
 - The C++ keywords `virtual`, `override`, `final`, `inline`, `explicit` and
-  `export` are standard C++ statements and **not** types and are therefore put
-  under the highlighting group `Statement`.
+  `export` are standard C++ statements and **not** types and are therefore
+  highlighted using the highlight group `Statement`.
 - Highlighting of library functions is purely regex-based.
-- User-defined function templates or class members are not highlighted. Their
-  regex'es are too complicated and slow, and fail too often.
+- User-defined function templates, class names in declarations, and class scopes
+  are not highlighted. Their regex'es are too complicated and slow, and fail too
+  often.
 
 
 ## Optional features
@@ -35,6 +37,9 @@ let g:cpp_no_function_highlight = 1
 
 " Enable highlighting of C++ attributes
 let g:cpp_attributes_highlight = 1
+
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 1
 
 " Put all standard C and C++ keywords under Vim's highlight group 'Statement'
 " (affects both C and C++ files)
@@ -48,26 +53,12 @@ Copy both `c.vim` and `cpp.vim` into your `~/.vim/after/syntax` directory, or
 use your preferred plugin manager.
 
 
-## Issues
-
-Vim tends to a have issues with flagging braces inside brackets as invalid
-syntax such as in the following example:
-```cpp
-std::map<std::pair<int, int>, int> m;
-m[{1, 2}] = 3;
-```
-
-As a workaround set
-```vim
-let c_no_curly_error = 1
-```
-See also `:help ft-c-syntax` for further options.
-
-
 ## License
 
 Distributed under the same terms as Vim itself. See `:help license`.
 
 
-[1]: https://github.com/octol/vim-cpp-enhanced-highlight
-[2]: https://en.cppreference.com/w/cpp/named_req
+[octol]: https://github.com/octol/vim-cpp-enhanced-highlight
+[attributes]: https://en.cppreference.com/w/cpp/language/attributes
+[coroutines]: https://en.cppreference.com/w/cpp/language/coroutines
+[concepts]: https://en.cppreference.com/w/cpp/concepts
