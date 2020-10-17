@@ -25,12 +25,18 @@ if !get(g:, 'cpp_no_function_highlight', 0)
     hi def link cUserFunction Function
 endif
 
-" Highlight member variable names.
-if get(g:, 'cpp_member_variable_highlight', 0)
-    syn match   cCustomDot    "\." contained
-    syn match   cCustomPtr    "->" contained
-    syn match   cCustomMemVar "\(\.\|->\)\h\w*" contains=cCustomDot,cCustomPtr
-    hi def link cCustomMemVar Function
+" Highlight member variables and functions.
+if get(g:, 'cpp_member_highlight', 0)
+    syn match cMemberAccess "\.\|->" nextgroup=cStructMember,cppTemplateKeyword
+    syn match cStructMember "\<\h\w*\>\%((\|<\)\@!" contained
+    syn cluster cParenGroup add=cStructMember
+    syn cluster cPreProcGroup add=cStructMember
+    hi def link cStructMember Identifier
+
+    if &filetype ==# 'cpp'
+        syn keyword cppTemplateKeyword template
+        hi def link cppTemplateKeyword cppStructure
+    endif
 endif
 
 " Common ANSI-standard Names
