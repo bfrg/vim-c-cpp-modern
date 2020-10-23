@@ -5,7 +5,7 @@
 "                  http://www.vim.org/scripts/script.php?script_id=3064
 " Maintainer:      bfrg <bfrg@users.noreply.github.com>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Oct 22, 2020
+" Last Change:     Oct 23, 2020
 "
 " Extended C syntax highlighting including highlighting of user-defined
 " functions.
@@ -61,5 +61,6 @@ hi def link cAnsiName Identifier
 if get(g:, 'cpp_simple_highlight', 0)
     hi link cStorageClass Statement
     hi link cStructure    Statement
+    hi link cTypedef      Statement
     hi link cLabel        Statement
 endif
