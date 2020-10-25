@@ -5,14 +5,17 @@ Keyword and regex-based syntax highlighting for C and C++11/14/17/20 in Vim.
 The syntax files provide highlighting of:
 - Common ANSI C keywords
 - C++ Standard Library namespaces, types, helper types, helper template
-  variables, constants
-- C++ [attributes][attributes]
+  variables, and constants
+- C++11 [attributes][attributes]
 - Latest C++20 language features like [coroutines][coroutines] and
   [concepts][concepts]
 - Function declarations/definitions and function calls (basically all words
   followed by an opening parenthesis)
 - Optionally a simpler (less colorful) highlighting of standard C and C++
   keywords
+
+![out](https://user-images.githubusercontent.com/6266600/97118850-a8902f00-170c-11eb-85c9-a5d2edd938a0.png)
+_Code snippet taken from [cppreference][cppreference] (left: default, right: this plugin)._
 
 
 ## Difference to vim-cpp-enhanced-highlight
@@ -35,7 +38,7 @@ following modifications:
 " Disable function highlighting (affects both C and C++ files)
 let g:cpp_no_function_highlight = 1
 
-" Enable highlighting of C++ attributes
+" Enable highlighting of C++11 attributes
 let g:cpp_attributes_highlight = 1
 
 " Highlight struct/class member variables (affects both C and C++ files)
@@ -46,11 +49,22 @@ let g:cpp_member_highlight = 1
 let g:cpp_simple_highlight = 1
 ```
 
+The last option changes the highlighting of the following keywords:
+- C: `static`, `register`, `auto`, `volatile`, `extern`, `const`, `inline`,
+  `__attribute__`, `restrict`, `alignas`, `alignof`, `static_assert`,
+  `noreturn`, `thread_local`, `struct`, `union`, `enum`, `case`, `default`
+- C++: `class`, `typename`, `template`, `namespace`, `concept`, `mutable`,
+  `constexpr` `decltype`, `consteval`, `constinit`
+
 
 ## Installation
 
-Copy both `c.vim` and `cpp.vim` into your `~/.vim/after/syntax` directory, or
-use your preferred plugin manager.
+```bash
+$ cd ~/.vim/pack/git-plugins/start
+$ git clone --depth=1 https://github.com/bfrg/vim-cpp-modern
+```
+**Note:** The directory name `git-plugins` is arbitrary, you can pick any other
+name. For more details see `:help packages`.
 
 
 ## License
@@ -58,6 +72,7 @@ use your preferred plugin manager.
 Distributed under the same terms as Vim itself. See `:help license`.
 
 
+[cppreference]: https://en.cppreference.com/w/cpp/language/coroutines
 [octol]: https://github.com/octol/vim-cpp-enhanced-highlight
 [attributes]: https://en.cppreference.com/w/cpp/language/attributes
 [coroutines]: https://en.cppreference.com/w/cpp/language/coroutines
