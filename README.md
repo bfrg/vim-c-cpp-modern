@@ -15,7 +15,8 @@ The syntax files provide highlighting of:
   keywords
 
 ![out](https://user-images.githubusercontent.com/6266600/97118850-a8902f00-170c-11eb-85c9-a5d2edd938a0.png)
-_Code snippet taken from [cppreference][cppreference] (left: default, right: this plugin)._
+_Code snippet from [cppreference][cppreference] (left: default syntax file,
+right: this plugin)._
 
 
 ## Difference to vim-cpp-enhanced-highlight
