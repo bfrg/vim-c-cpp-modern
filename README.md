@@ -37,7 +37,7 @@ following modifications:
 
 ```vim
 " Disable function highlighting (affects both C and C++ files)
-let g:cpp_no_function_highlight = 1
+let g:cpp_function_highlight = 0
 
 " Enable highlighting of C++11 attributes
 let g:cpp_attributes_highlight = 1
