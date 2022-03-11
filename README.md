@@ -64,11 +64,9 @@ The last option changes the highlighting of the following keywords:
 $ cd ~/.vim/pack/git-plugins/start
 $ git clone --depth=1 https://github.com/bfrg/vim-cpp-modern
 ```
-**Notes:**
-- The directory name `git-plugins` is arbitrary, you can pick any other
+**Note:** The directory name `git-plugins` is arbitrary, you can pick any other
 name. For more details see `:help packages`.
 
-- <strong>For new `vim` users</strong> - if you don't see syntax highlighting after installing the package, remember to turn it on with the `:syntax on` vim command, or by placing `syntax on` within your `.vimrc` file.
 
 ## License
 
