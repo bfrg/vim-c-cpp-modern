@@ -88,7 +88,6 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLexception
             \ bad_function_call future_error regex_error system_error bad_weak_ptr bad_array_new_length
 
-    " syntax keyword cppSTLiterator contained
     syntax keyword cppSTLiterator
             \ move_iterator regex_iterator regex_token_iterator const_local_iterator local_iterator
 
@@ -169,6 +168,17 @@ if !exists('cpp_no_cpp20')
 
     syntax keyword cppSTLconcept
             \ assignable_from boolean common_reference_with common_with constructible_from convertible_to copy_constructible copyable default_constructible derived_from destructible equality_comparable equality_comparable_with equivalence_relation floating_point integral invocable movable move_constructible predicate regular regular_invocable relation same_as semiregular signed_integral strict_weak_order swappable swappable_with totally_ordered totally_ordered_with unsigned_integral default_initializable range sized_range view input_range output_range forward_range bidirectional_range random_access_range contiguous_range common_range viewable_range three_way_comparable three_way_comparable_with indirectly_readable indirectly_writable weakly_incrementable incrementable input_or_output_iterator sentinel_for sized_sentinel_for input_iterator output_iterator forward_iterator bidirectional_iterator random_access_iterator contiguous_iterator indirectly_unary_invocable indirectly_regular_unary_invocable indirect_unary_predicate indirect_binary_predicate indirect_equivalence_relation indirect_strict_weak_order indirectly_movable indirectly_movable_storable indirectly_copyable indirectly_copyable_storable indirectly_swappable indirectly_comparable permutable mergeable sortable
+endif
+
+
+" C++23 extensions {{{1
+if !exists('cpp_no_cpp23')
+    syntax keyword cppSTLtype basic_stacktrace stacktrace_entry is_scoped_enum
+    syntax keyword cppSTLtypedef stacktrace
+    syntax keyword cppSTLbool is_scoped_enum_v
+    syntax keyword cppSTLfunction invoke_r
+    syntax keyword cppSTLtype expected unexpected unexpect_t bad_expected_access
+    syntax keyword cppSTLvariable unexpect
 endif
 
 

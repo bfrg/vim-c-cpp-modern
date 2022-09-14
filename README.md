@@ -1,6 +1,6 @@
 # vim-cpp-modern: Enhanced C and C++ syntax highlighting
 
-Keyword and regex-based syntax highlighting for C and C++11/14/17/20 in Vim.
+Keyword and regex-based syntax highlighting for C and C++11/14/17/20/23 in Vim.
 
 The syntax files provide highlighting of:
 - Common ANSI C keywords
