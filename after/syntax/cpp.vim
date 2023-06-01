@@ -17,52 +17,57 @@ if get(g:, 'cpp_attributes_highlight', 0)
     hi def link cppAttributeBrackets Identifier
 endif
 
+" C++11 new syntax highlights {{{1
+if !exists('cpp_no_new_syntax')
+    syntax keyword cppStatement nullptr
+    syntax keyword cppStatement operator
+    syntax keyword cppType char16_t char32_t
+endif
 
-" Standard library {{{1
-syntax keyword cppSTLdefine
-        \ MB_CUR_MAX MB_LEN_MAX WCHAR_MAX WCHAR_MIN WEOF __STDC_UTF_16__ __STDC_UTF_32__
+" C++98 extensions {{{1
+if !exists('cpp_no_cpp98')
+    " Standard library {{{1
+    syntax keyword cppSTLdefine
+            \ MB_CUR_MAX MB_LEN_MAX WCHAR_MAX WCHAR_MIN WEOF __STDC_UTF_16__ __STDC_UTF_32__
 
-syntax keyword cppSTLnamespace
-        \ std experimental rel_ops
+    syntax keyword cppSTLnamespace
+            \ std experimental rel_ops
 
-syntax keyword cppSTLconstant
-        \ badbit digits digits10 eofbit failbit goodbit has_denorm has_denorm_loss has_infinity has_quiet_NaN has_signaling_NaN is_bounded is_exact is_iec559 is_integer is_modulo is_signed is_specialized max_exponent max_exponent10 min_exponent min_exponent10 npos radix round_style tinyness_before traps
+    syntax keyword cppSTLconstant
+            \ badbit digits digits10 eofbit failbit goodbit has_denorm has_denorm_loss has_infinity has_quiet_NaN has_signaling_NaN is_bounded is_exact is_iec559 is_integer is_modulo is_signed is_specialized max_exponent max_exponent10 min_exponent min_exponent10 npos radix round_style tinyness_before traps
 
-syntax keyword cppSTLvariable
-        \ cerr cin clog cout wcerr wcin wclog wcout nothrow
+    syntax keyword cppSTLvariable
+            \ cerr cin clog cout wcerr wcin wclog wcout nothrow
 
-syntax keyword cppSTLexception
-        \ bad_alloc bad_exception bad_typeid bad_cast domain_error exception failure invalid_argument length_error logic_error out_of_range overflow_error range_error runtime_error underflow_error
+    syntax keyword cppSTLexception
+            \ bad_alloc bad_exception bad_typeid bad_cast domain_error exception failure invalid_argument length_error logic_error out_of_range overflow_error range_error runtime_error underflow_error
 
-syntax keyword cppSTLios
-        \ endl ends flush resetiosflags setbase setfill setiosflags setprecision setw ws
+    syntax keyword cppSTLios
+            \ endl ends flush resetiosflags setbase setfill setiosflags setprecision setw ws
 
-syntax keyword cppSTLios
-        \ boolalpha dec defaultfloat fixed hex hexfloat internal left noboolalpha noshowbase noshowpoint noshowpos noskipws nounitbuf nouppercase oct right scientific showbase showpoint showpos skipws unitbuf uppercase
+    syntax keyword cppSTLios
+            \ boolalpha dec defaultfloat fixed hex hexfloat internal left noboolalpha noshowbase noshowpoint noshowpos noskipws nounitbuf nouppercase oct right scientific showbase showpoint showpos skipws unitbuf uppercase
 
-syntax keyword cppSTLtype
-        \ fmtflags iostate openmode Init allocator auto_ptr basic_filebuf basic_fstream basic_ifstream basic_ios basic_iostream basic_istream basic_istringstream basic_ofstream basic_ostream basic_ostringstream basic_streambuf basic_string basic_stringbuf basic_stringstream binary_compose binder1st binder2nd bitset char_traits char_type const_mem_fun1_t const_mem_fun_ref1_t const_mem_fun_ref_t const_mem_fun_t const_pointer const_reference container_type deque difference_type div_t event_callback filebuf first_type float_denorm_style float_round_style fpos fstream gslice_array ifstream imaxdiv_t indirect_array int_type ios ios_base iostream istream istringstream istrstream iterator_category iterator_traits key_compare key_type ldiv_t list lldiv_t map mapped_type mask_array mbstate_t mem_fun1_t mem_fun_ref1_t mem_fun_ref_t mem_fun_t multimap multiset nothrow_t numeric_limits off_type ofstream ostream ostringstream ostrstream pair pointer pointer_to_binary_function pointer_to_unary_function pos_type priority_queue queue reference second_type seekdir sequence_buffer set size_type slice_array stack state_type stream streambuf streamoff streampos streamsize string stringbuf stringstream strstream strstreambuf temporary_buffer test_type tm traits_type type_info u16string u32string unary_compose unary_negate valarray value_compare value_type vector wfilebuf wfstream wifstream wios wiostream wistream wistringstream wofstream wostream wostringstream wstreambuf wstreampos wstring wstringbuf wstringstream codecvt codecvt_base codecvt_byname collate collate_byname ctype ctype_base ctype_byname locale messages messages_base messages_byname money_base money_get money_put moneypunct moneypunct_byname num_get num_put numpunct numpunct_byname time_base time_get time_get_byname time_put time_put_byname binary_function binary_negate bit_and bit_not bit_or divides equal_to greater greater_equal less less_equal logical_and logical_not logical_or minus modulus multiplies negate not_equal_to plus unary_function unary_negate bidirectional_iterator_tag forward_iterator_tag input_iterator_tag output_iterator_tag random_access_iterator_tag
+    syntax keyword cppSTLtype
+            \ fmtflags iostate openmode Init allocator auto_ptr basic_filebuf basic_fstream basic_ifstream basic_ios basic_iostream basic_istream basic_istringstream basic_ofstream basic_ostream basic_ostringstream basic_streambuf basic_string basic_stringbuf basic_stringstream binary_compose binder1st binder2nd bitset char_traits char_type const_mem_fun1_t const_mem_fun_ref1_t const_mem_fun_ref_t const_mem_fun_t const_pointer const_reference container_type deque difference_type div_t event_callback filebuf first_type float_denorm_style float_round_style fpos fstream gslice_array ifstream imaxdiv_t indirect_array int_type ios ios_base iostream istream istringstream istrstream iterator_category iterator_traits key_compare key_type ldiv_t list lldiv_t map mapped_type mask_array mbstate_t mem_fun1_t mem_fun_ref1_t mem_fun_ref_t mem_fun_t multimap multiset nothrow_t numeric_limits off_type ofstream ostream ostringstream ostrstream pair pointer pointer_to_binary_function pointer_to_unary_function pos_type priority_queue queue reference second_type seekdir sequence_buffer set size_type slice_array stack state_type stream streambuf streamoff streampos streamsize string stringbuf stringstream strstream strstreambuf temporary_buffer test_type tm traits_type type_info u16string u32string unary_compose unary_negate valarray value_compare value_type vector wfilebuf wfstream wifstream wios wiostream wistream wistringstream wofstream wostream wostringstream wstreambuf wstreampos wstring wstringbuf wstringstream codecvt codecvt_base codecvt_byname collate collate_byname ctype ctype_base ctype_byname locale messages messages_base messages_byname money_base money_get money_put moneypunct moneypunct_byname num_get num_put numpunct numpunct_byname time_base time_get time_get_byname time_put time_put_byname binary_function binary_negate bit_and bit_not bit_or divides equal_to greater greater_equal less less_equal logical_and logical_not logical_or minus modulus multiplies negate not_equal_to plus unary_function unary_negate bidirectional_iterator_tag forward_iterator_tag input_iterator_tag output_iterator_tag random_access_iterator_tag
 
-syntax keyword cppSTLtypedef
-        \ time_t sig_atomic_t wctrans_t wctype_t wint_t
+    syntax keyword cppSTLtypedef
+            \ time_t sig_atomic_t wctrans_t wctype_t wint_t
 
-syntax keyword cppSTLiterator
-        \ back_insert_iterator bidirectional_iterator const_iterator const_reverse_iterator forward_iterator front_insert_iterator input_iterator insert_iterator istream_iterator istreambuf_iterator iterator ostream_iterator ostreambuf_iterator output_iterator random_access_iterator raw_storage_iterator reverse_bidirectional_iterator reverse_iterator
+    syntax keyword cppSTLiterator
+            \ back_insert_iterator bidirectional_iterator const_iterator const_reverse_iterator forward_iterator front_insert_iterator input_iterator insert_iterator istream_iterator istreambuf_iterator iterator ostream_iterator ostreambuf_iterator output_iterator random_access_iterator raw_storage_iterator reverse_bidirectional_iterator reverse_iterator
 
-" Function templates that are called with template parameters
-syntax keyword cppSTLfunction
-        \ use_facet has_facet get
+    " Function templates that are called with template parameters
+    syntax keyword cppSTLfunction
+            \ use_facet has_facet get
 
-" Some of these keywords can be highlighted as cppSTLios or cppSTLconstant
-" syntax keyword cppSTLconstant
-"         \ adjustfield app ate basefield binary floatfield in out trunc boolalpha dec fixed hex internal left oct right scientific showbase showpoint showpos skipws unitbuf uppercase
-
+    " Some of these keywords can be highlighted as cppSTLios or cppSTLconstant
+    " syntax keyword cppSTLconstant
+    "         \ adjustfield app ate basefield binary floatfield in out trunc boolalpha dec fixed hex internal left oct right scientific showbase showpoint showpos skipws unitbuf uppercase
+endif
 
 " C++11 extensions {{{1
 if !exists('cpp_no_cpp11')
-    syntax keyword cppStatement nullptr
-    syntax keyword cppType char16_t char32_t
-
     syntax keyword cppSTLnamespace chrono this_thread
 
     syntax keyword cppSTLtype
