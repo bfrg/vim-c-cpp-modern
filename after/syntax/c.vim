@@ -14,6 +14,11 @@
 " Highlight additional keywords in the comments
 syn keyword cTodo contained BUG NOTE
 
+" Highlight type names
+if get(g:, 'cpp_type_highlight', 0)
+    syn match cUserType "\<[A-Z]\w\+\>"
+    hi def link cUserType Type
+endif
 
 " Highlight function names
 if get(g:, 'cpp_function_highlight', 1)
