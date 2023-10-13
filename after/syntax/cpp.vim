@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <https://github.com/bfrg>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Sep 15, 2022
+" Last Change:     Oct 23, 2023
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -173,8 +173,8 @@ endif
 
 " C++23 extensions {{{1
 if !exists('cpp_no_cpp23')
-    syntax keyword cppSTLtype basic_stacktrace stacktrace_entry is_scoped_enum
-    syntax keyword cppSTLtypedef stacktrace
+    syntax keyword cppSTLtype basic_stacktrace stacktrace_entry is_scoped_enum mdspan extents default_accessor layout_left layout_right layout_stride flat_set flat_map flat_multiset flat_multimap
+    syntax keyword cppSTLtypedef stacktrace dextents
     syntax keyword cppSTLbool is_scoped_enum_v
     syntax keyword cppSTLfunction invoke_r
     syntax keyword cppSTLtype expected unexpected unexpect_t bad_expected_access
