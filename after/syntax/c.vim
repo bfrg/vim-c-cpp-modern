@@ -4,7 +4,7 @@
 " Original Author: Mikhail Wolfson <mywolfson@gmail.com>
 " Maintainer:      bfrg <https://github.com/bfrg>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Jul 24, 2021
+" Last Change:     Dec 30, 2023
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
@@ -17,7 +17,7 @@ syn keyword cTodo contained BUG NOTE
 
 " Highlight function names
 if get(g:, 'cpp_function_highlight', 1)
-    syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
+    syn match cUserFunction "\<\h\w*\ze\_s\{-}(\%(\*\h\w*)\_s\{-}(\)\@!"
     hi def link cUserFunction Function
 endif
 
