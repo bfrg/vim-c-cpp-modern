@@ -4,7 +4,7 @@
 " Original Author: Mikhail Wolfson <mywolfson@gmail.com>
 " Maintainer:      bfrg <https://github.com/bfrg>
 " Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Jul 9, 2023
+" Last Change:     Jul 9, 2024
 "
 " This syntax file is based on:
 " https://github.com/octol/vim-cpp-enhanced-highlight
