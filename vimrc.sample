@@ -1,0 +1,63 @@
+" Check what group a token belongs to
+function! SynStack()
+  for i1 in synstack(line("."), col("."))
+    let i2 = synIDtrans(i1)
+    let n1 = synIDattr(i1, "name")
+    let n2 = synIDattr(i2, "name")
+    echo n1 "->" n2
+  endfor
+endfunction
+map gm :call SynStack()<CR>
+
+" Enable function highlighting (affects both C and C++ files)
+let g:cpp_function_highlight = 1
+
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
+
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 1
+
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+" (affects both C and C++ files)
+let g:cpp_simple_highlight = 0
+
+set t_Co=256
+
+" Alter group:Statement only for C/C++ files
+augroup sample
+    autocmd!
+    autocmd FileType c,cpp highlight Statement ctermfg=green cterm=bold
+augroup END
+
+highlight cConstant ctermfg=magenta cterm=bold
+highlight cType ctermfg=green cterm=bold
+highlight cStatment ctermfg=green cterm=bold
+highlight cFormat ctermfg=green cterm=bold
+highlight cBoolean ctermfg=magenta cterm=bold
+highlight cNumber ctermfg=magenta cterm=bold
+highlight cIncluded ctermfg=magenta cterm=bold
+highlight cSpecialCharacter ctermfg=red cterm=bold
+highlight cCommentL ctermfg=black cterm=bold
+highlight cComment ctermfg=27 cterm=bold
+highlight cOperator ctermfg=lightgreen cterm=bold
+highlight cSymbols ctermfg=33
+highlight cStructureName ctermfg=208
+highlight cStructMember ctermfg=129 cterm=bold
+highlight cStructure ctermfg=129 cterm=bold
+highlight cUserFunctionPointer ctermfg=lightgreen cterm=bold
+highlight cUserFunction ctermfg=81 cterm=bold
+highlight cppConstant ctermfg=magenta cterm=bold
+highlight cppNumber ctermfg=magenta cterm=bold
+highlight cppBoolean ctermfg=magenta cterm=bold
+highlight cppStatment ctermfg=green cterm=bold
+highlight cppString ctermfg=205
+highlight cppStructureName ctermfg=208
+highlight cppStructure ctermfg=129 cterm=bold
+highlight cppClassName ctermfg=129 cterm=bold
+highlight cppSTLvariable ctermfg=2 cterm=bold
+highlight cppSTLios ctermfg=red cterm=bold
+highlight cppSTLfunction ctermfg=green cterm=bold
+highlight cppSTLnamespace ctermfg=magenta cterm=none
+highlight cppAccess ctermfg=green ctermbg=blue cterm=bold
+
