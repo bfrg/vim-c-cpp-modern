@@ -181,6 +181,12 @@ if !exists('cpp_no_cpp23')
     syntax keyword cppSTLvariable unexpect
 endif
 
+" cppStructureNames
+syntax match cppStructureName "\%(^\|\s\)\@<=\%(\%(struct\|enum\|union\|class\|typename\|namespace\)\s\+\)\@<=\h\w*"
+
+" Special case for template
+syntax match cppStructureName "\%(^\|\s\)\@<=\%(template\s*<.*>\s*\)\@<=\h\w*" contains=cppStructure
+
 
 " Boost {{{1
 if !exists('cpp_no_boost')
@@ -205,6 +211,7 @@ hi def link cppSTLenum         Typedef
 hi def link cppSTLios          Function
 hi def link cppSTLconcept      Typedef
 hi def link cppSTLvariable     Identifier
+hi def link cppStructureName   Function
 
 " The keywords {inline, virtual, explicit, export, override, final} are
 " standard C++ keywords and NOT types!

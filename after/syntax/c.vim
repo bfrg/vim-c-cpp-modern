@@ -23,10 +23,21 @@ if get(g:, 'cpp_function_highlight', 1)
     hi def link cUserFunctionPointer Function
 endif
 
+" Highlight symbols
+syntax match cSymbols /[&<>!%=~+\-|?^*]\|[^:]\@<=:[^:]\@=\|[^/#]\zs\\\+\ze[^/]\|[^/#]\zs\/\ze[^/*]/
+
+" Default highlighting
+highlight def link cSymbols PreProc
+
+" Highlight structure names/identifiers
+syntax match cStructureName "\%(^\|\s\)\@<=\%(\%(struct\|enum\|union\)\s\+\)\@<=\h\w*" contains=cStructure
+
+" Default highlighting
+highlight def link cStructureName Function
 
 " Highlight struct/class member variables
 if get(g:, 'cpp_member_highlight', 0)
-    syn match cMemberAccess "\.\|->" nextgroup=cStructMember,cppTemplateKeyword
+    syn match cMemberAccess "\.\|->" nextgroup=cStructMember,cppTemplateKeyword contains=cSymbols
     syn match cStructMember "\<\h\w*\>\%((\|<\)\@!" contained
     syn cluster cParenGroup add=cStructMember
     syn cluster cPreProcGroup add=cStructMember
