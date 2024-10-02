@@ -1,13 +1,10 @@
 " ==============================================================================
 " Vim syntax file
 " Language:        C Additions
-" Original Author: Mikhail Wolfson <mywolfson@gmail.com>
+" Original Author: Mikhail Wolfson, Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <https://github.com/bfrg>
-" Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Jul 9, 2024
-"
-" This syntax file is based on:
-" https://github.com/octol/vim-cpp-enhanced-highlight
+" Website:         https://github.com/bfrg/vim-c-cpp-modern
+" Last Change:     Oct 2, 2024
 " ==============================================================================
 
 
@@ -37,6 +34,27 @@ if get(g:, 'cpp_member_highlight', 0)
         syn keyword cppTemplateKeyword template
         hi def link cppTemplateKeyword cppStructure
     endif
+endif
+
+
+" Highlight names in struct, union and enum declarations
+if get(g:, 'cpp_type_name_highlight', 1)
+    syn match cTypeName "\%(\%(\<struct\|union\|enum\)\s\+\)\@8<=\h\w*"
+    hi def link cTypeName Type
+
+    if &filetype ==# 'cpp'
+        syn match cTypeName "\%(\%(\<class\|using\|concept\|requires\)\s\+\)\@10<=\h\w*"
+    endif
+endif
+
+
+" Highlight operators
+if get(g:, 'cpp_operator_highlight', 0)
+    syn match cOperator "[?!~*&%<>^|=,+]"
+    syn match cOperator "[][]"
+    syn match cOperator "[^:]\@1<=:[^:]\@="
+    syn match cOperator "-[^>]"me=e-1
+    syn match cOperator "/[^/*]"me=e-1
 endif
 
 

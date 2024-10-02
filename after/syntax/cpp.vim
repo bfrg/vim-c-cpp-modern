@@ -1,13 +1,10 @@
 " ==============================================================================
 " Vim syntax file
-" Language:        C++ (Standard library including C++11/14/17/20)
+" Language:        C++ Additions
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <https://github.com/bfrg>
-" Website:         https://github.com/bfrg/vim-cpp-modern
-" Last Change:     Oct 13, 2023
-"
-" This syntax file is based on:
-" https://github.com/octol/vim-cpp-enhanced-highlight
+" Website:         https://github.com/bfrg/vim-c-cpp-modern
+" Last Change:     Oct 2, 2024
 " ==============================================================================
 
 " C++ attributes {{{1
