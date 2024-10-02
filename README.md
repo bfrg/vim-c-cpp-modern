@@ -1,4 +1,4 @@
-# vim-cpp-modern: Enhanced C and C++ syntax highlighting
+# vim-c-cpp-modern: Enhanced C and C++ syntax highlighting
 
 Keyword and regex-based syntax highlighting for C and C++11/14/17/20/23 in Vim.
 
@@ -7,14 +7,14 @@ The syntax files provide highlighting of:
 - C++ Standard Library namespaces, types, helper types, helper template
   variables, and constants
 - C++11 [attributes][attributes]
-- Latest C++20 language features like [coroutines][coroutines] and
+- Latest C++ language features like [coroutines][coroutines] and
   [concepts][concepts]
-- Function declarations/definitions and function calls (basically all words
-  followed by an opening parenthesis)
+- Function and function pointer declarations, and function calls (basically all
+  words followed by an opening parenthesis)
 - Optionally a simpler (less colorful) highlighting of standard C and C++
   keywords
 
-![out](https://user-images.githubusercontent.com/6266600/97118850-a8902f00-170c-11eb-85c9-a5d2edd938a0.png)
+![Image][image]
 _Code snippet from [cppreference][cppreference] (left: default syntax file,
 right: this plugin)._
 
@@ -45,6 +45,13 @@ let g:cpp_attributes_highlight = 1
 " Highlight struct/class member variables (affects both C and C++ files)
 let g:cpp_member_highlight = 1
 
+" Disable highlighting of type names in class, struct, union, enum, using, and
+concept declarations (affects both C and C++ files)
+let g:cpp_type_name_highlight = 0
+
+" Highlight operators (affects both C and C++ files)
+let g:cpp_operator_highlight = 1
+
 " Put all standard C and C++ keywords under Vim's highlight group 'Statement'
 " (affects both C and C++ files)
 let g:cpp_simple_highlight = 1
@@ -62,7 +69,7 @@ The last option changes the highlighting of the following keywords:
 
 ```bash
 $ cd ~/.vim/pack/git-plugins/start
-$ git clone --depth=1 https://github.com/bfrg/vim-cpp-modern
+$ git clone https://github.com/bfrg/vim-c-cpp-modern
 ```
 **Note:** The directory name `git-plugins` is arbitrary, you can pick any other
 name. For more details see `:help packages`.
@@ -78,3 +85,4 @@ Distributed under the same terms as Vim itself. See `:help license`.
 [attributes]: https://en.cppreference.com/w/cpp/language/attributes
 [coroutines]: https://en.cppreference.com/w/cpp/language/coroutines
 [concepts]: https://en.cppreference.com/w/cpp/concepts
+[image]: https://user-images.githubusercontent.com/6266600/97118850-a8902f00-170c-11eb-85c9-a5d2edd938a0.png
