@@ -14,9 +14,8 @@ The syntax files provide highlighting of:
 - Optionally a simpler (less colorful) highlighting of standard C and C++
   keywords
 
-![Image][image]
-_Code snippet from [cppreference][cppreference] (left: default syntax file,
-right: this plugin)._
+![screenshot](https://github.com/user-attachments/assets/4c61580e-203b-4a78-b7cf-2b34702640f0)
+**left:** default `cpp` syntax file, **right:** this plugin
 
 
 ## Difference to vim-cpp-enhanced-highlight
@@ -46,7 +45,7 @@ let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
 " Disable highlighting of type names in class, struct, union, enum, using, and
-concept declarations (affects both C and C++ files)
+" concept declarations (affects both C and C++ files)
 let g:cpp_type_name_highlight = 0
 
 " Highlight operators (affects both C and C++ files)
@@ -85,4 +84,3 @@ Distributed under the same terms as Vim itself. See `:help license`.
 [attributes]: https://en.cppreference.com/w/cpp/language/attributes
 [coroutines]: https://en.cppreference.com/w/cpp/language/coroutines
 [concepts]: https://en.cppreference.com/w/cpp/concepts
-[image]: https://user-images.githubusercontent.com/6266600/97118850-a8902f00-170c-11eb-85c9-a5d2edd938a0.png
