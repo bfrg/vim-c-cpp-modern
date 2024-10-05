@@ -14,8 +14,8 @@ The syntax files provide highlighting of:
 - Optionally a simpler (less colorful) highlighting of standard C and C++
   keywords
 
-![screenshot](https://github.com/user-attachments/assets/4c61580e-203b-4a78-b7cf-2b34702640f0)
-**left:** default `cpp` syntax file, **right:** this plugin
+![screenshot][screenshot]
+**left:** default `cpp.vim` syntax file, **right:** this plugin
 
 
 ## Difference to vim-cpp-enhanced-highlight
@@ -27,9 +27,8 @@ following modifications:
   `export` are standard C++ statements and **not** types and are therefore
   highlighted using the highlight group `Statement`.
 - Highlighting of library functions is purely regex-based.
-- User-defined function templates, class names in declarations, and class scopes
-  are not highlighted. Their regex'es are too complicated and slow, and fail too
-  often.
+- User-defined function templates and class/struct members are not highlighted.
+  Their regex'es are too complicated and slow, and fail too often.
 
 
 ## Optional features
@@ -84,3 +83,4 @@ Distributed under the same terms as Vim itself. See `:help license`.
 [attributes]: https://en.cppreference.com/w/cpp/language/attributes
 [coroutines]: https://en.cppreference.com/w/cpp/language/coroutines
 [concepts]: https://en.cppreference.com/w/cpp/concepts
+[screenshot]: https://github.com/user-attachments/assets/4c61580e-203b-4a78-b7cf-2b34702640f0
