@@ -4,7 +4,7 @@
 " Original Author: Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <https://github.com/bfrg>
 " Website:         https://github.com/bfrg/vim-c-cpp-modern
-" Last Change:     Oct 2, 2024
+" Last Change:     Nov 22, 2024
 " ==============================================================================
 
 " C++ attributes {{{1
@@ -100,7 +100,7 @@ if !exists('cpp_no_cpp14')
     syntax keyword cppSTLfunction make_unique
 
     syntax keyword cppSTLtype
-            \ index_sequence index_sequence_for integer_sequence make_index_sequence make_integer_sequence shared_lock shared_timed_mutex is_null_pointer
+            \ index_sequence index_sequence_for integer_sequence make_index_sequence make_integer_sequence shared_lock shared_timed_mutex is_final is_null_pointer
 
     syntax keyword cppSTLtypedef
             \ tuple_element_t add_const_t add_cv_t add_lvalue_reference_t add_pointer_t add_rvalue_reference_t add_volatile_t aligned_storage_t aligned_union_t common_type_t conditional_t decay_t enable_if_t make_signed_t make_unsigned_t remove_all_extents_t remove_const_t remove_cv_t remove_extent_t remove_pointer_t remove_reference_t remove_volatile_t result_of_t underlying_type_t
