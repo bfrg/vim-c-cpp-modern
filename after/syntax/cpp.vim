@@ -177,13 +177,6 @@ if !exists('cpp_no_cpp23')
     syntax keyword cppSTLtype expected unexpected unexpect_t bad_expected_access
     syntax keyword cppSTLvariable unexpect
 endif
-
-
-" Boost {{{1
-if !exists('cpp_no_boost')
-    syntax keyword cppSTLnamespace boost
-    syntax keyword cppSTLfunction lexical_cast
-endif
 " }}}
 
 
