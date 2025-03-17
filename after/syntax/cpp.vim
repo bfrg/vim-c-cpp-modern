@@ -16,6 +16,9 @@ endif
 
 
 " Standard library {{{1
+syntax keyword cppSTLalternativeoperators
+        \ and or xor bitand bitor not and_eq or_eq xor_eq bitand_eq bitor_eq not_eq compl
+
 syntax keyword cppSTLdefine
         \ MB_CUR_MAX MB_LEN_MAX WCHAR_MAX WCHAR_MIN WEOF __STDC_UTF_16__ __STDC_UTF_32__
 
