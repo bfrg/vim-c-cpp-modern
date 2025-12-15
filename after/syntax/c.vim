@@ -39,11 +39,11 @@ endif
 
 " Highlight names in struct, union and enum declarations
 if get(g:, 'cpp_type_name_highlight', 1)
-    syn match cTypeName "\%(\%(\<struct\|union\|enum\)\s\+\)\@8<=\h\w*"
+    syn match cTypeName "\%(\<\%(struct\|union\|enum\)\s\+\)\@8<=\h\w*"
     hi def link cTypeName Type
 
     if &filetype ==# 'cpp'
-        syn match cTypeName "\%(\%(\<class\|using\|concept\|requires\)\s\+\)\@10<=\h\w*"
+        syn match cTypeName "\%(\<\%(class\|using\|concept\|requires\)\s\+\)\@10<=\h\w*"
     endif
 endif
 
