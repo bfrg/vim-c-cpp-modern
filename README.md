@@ -50,6 +50,10 @@ let g:cpp_type_name_highlight = 0
 " Highlight operators (affects both C and C++ files)
 let g:cpp_operator_highlight = 1
 
+" Put builtin C and C++ types (int, long, double, auto, bool etc.) under Vim's
+highlight group 'Statement' (results in a simpler syntax highlighting)
+let g:cpp_builtin_types_as_statement = 1
+
 " Put all standard C and C++ keywords under Vim's highlight group 'Statement'
 " (affects both C and C++ files)
 let g:cpp_simple_highlight = 1

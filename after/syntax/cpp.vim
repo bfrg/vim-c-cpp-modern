@@ -207,6 +207,13 @@ hi def link cppSTLvariable     Identifier
 hi! def link cppModifier Statement
 
 
+" Highlight C++ builtin types as Statement
+if get(g:, 'cpp_builtin_types_as_statement', 0)
+    syntax keyword cppBuiltinType auto bool
+    hi def link cppBuiltinType Statement
+endif
+
+
 " Highlight all standard C++ keywords as Statement
 if get(g:, 'cpp_simple_highlight', 0)
     hi! def link cppStructure    Statement

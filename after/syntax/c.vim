@@ -4,7 +4,7 @@
 " Original Author: Mikhail Wolfson, Jon Haggblad <https://github.com/octol>
 " Maintainer:      bfrg <https://github.com/bfrg>
 " Website:         https://github.com/bfrg/vim-c-cpp-modern
-" Last Change:     Oct 2, 2024
+" Last Change:     Dec 25, 2025
 " ==============================================================================
 
 
@@ -18,6 +18,13 @@ if get(g:, 'cpp_function_highlight', 1)
     syn match cUserFunctionPointer "\%((\s*\*\s*\)\@6<=\h\w*\ze\s*)\_s\{-}(.*)"
     hi def link cUserFunction Function
     hi def link cUserFunctionPointer Function
+endif
+
+
+" Highlight C builtin types as Statement
+if get(g:, 'cpp_builtin_types_as_statement', 0)
+    syntax keyword cBuiltinType int long short char void signed unsigned float double
+    hi def link cBuiltinType Statement
 endif
 
 
