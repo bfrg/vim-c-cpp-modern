@@ -1,14 +1,13 @@
 # vim-c-cpp-modern: Enhanced C and C++ syntax highlighting
 
-Keyword and regex-based syntax highlighting for C and C++11/14/17/20/23 in Vim.
+Keyword and regex-based syntax highlighting for C and C++11..26 in Vim.
 
 The syntax files provide highlighting of:
 - Common ANSI C keywords
 - C++ Standard Library namespaces, types, helper types, helper template
   variables, and constants
-- C++11 [attributes][attributes]
-- Latest C++ language features like [coroutines][coroutines] and
-  [concepts][concepts]
+- Latest C++ language features like [attributes][attributes],
+  [coroutines][coroutines] and [concepts][concepts]
 - Function and function pointer declarations, and function calls (basically all
   words followed by an opening parenthesis)
 - Optionally a simpler (less colorful) highlighting of standard C and C++
@@ -51,7 +50,7 @@ let g:cpp_type_name_highlight = 0
 let g:cpp_operator_highlight = 1
 
 " Put builtin C and C++ types (int, long, double, auto, bool etc.) under Vim's
-highlight group 'Statement' (results in a simpler syntax highlighting)
+" highlight group 'Statement' (results in a simpler syntax highlighting)
 let g:cpp_builtin_types_as_statement = 1
 
 " Put all standard C and C++ keywords under Vim's highlight group 'Statement'
